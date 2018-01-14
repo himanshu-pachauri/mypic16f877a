@@ -1,0 +1,28 @@
+#include<htc.h>
+#include<pic.h>
+__CONFIG(0x3a3b);
+#define _pic16f877a_;
+void spi_master_ini()
+{
+
+
+
+
+}
+void spi_write(unsigned char x)
+{
+
+
+
+}
+unsigned char spi_read()
+{
+
+
+
+}
+void main()
+{
+
+
+}

@@ -1,0 +1,923 @@
+
+
+HI-TECH Software PIC LITE Macro Assembler V9.70 build 5239 
+                                                                                               Sun Oct 09 09:36:21 2016
+
+HI-TECH Software Omniscient Code Generator (Lite mode) build 5239
+     1  0000                     opt subtitle "HI-TECH Software Omniscient Code Generator (Lite mode) build 5239"
+     2                           
+     3                           opt pagewidth 120
+     4                           
+     5                           	opt lm
+     6                           
+     7                           	processor	16F877A
+     8                           clrc	macro
+     9                           	bcf	3,0
+    10  0000                     	endm
+    11                           clrz	macro
+    12                           	bcf	3,2
+    13  0000                     	endm
+    14                           setc	macro
+    15                           	bsf	3,0
+    16  0000                     	endm
+    17                           setz	macro
+    18                           	bsf	3,2
+    19  0000                     	endm
+    20                           skipc	macro
+    21                           	btfss	3,0
+    22  0000                     	endm
+    23                           skipz	macro
+    24                           	btfss	3,2
+    25  0000                     	endm
+    26                           skipnc	macro
+    27                           	btfsc	3,0
+    28  0000                     	endm
+    29                           skipnz	macro
+    30                           	btfsc	3,2
+    31  0000                     	endm
+    32  0000                     indf	equ	0
+    33  0000                     indf0	equ	0
+    34  0002                     pc	equ	2
+    35  0002                     pcl	equ	2
+    36  0003                     status	equ	3
+    37  0004                     fsr	equ	4
+    38  0004                     fsr0	equ	4
+    39  0001                     c	equ	1
+    40  0000                     z	equ	0
+    41  000A                     pclath	equ	10
+    42                           # 2 "C:\Users\Jarvis\Desktop\PIC16f877a_coding\timer0\timer0.c"
+    43                           	psect config,class=CONFIG,delta=2 ;#
+    44                           # 2 "C:\Users\Jarvis\Desktop\PIC16f877a_coding\timer0\timer0.c"
+    45  2007  3A3F               	dw 0x3a3f ;#
+    46                           	FNCALL	_main,_timer0_delay
+    47                           	FNROOT	_main
+    48                           	global	_ADCON0
+    49                           psect	text8,local,class=CODE,delta=2
+    50                           global __ptext8
+    51  0003                     __ptext8:
+    52  001F                     _ADCON0  equ     31
+    53                           	global	_ADRESH
+    54  001E                     _ADRESH  equ     30
+    55                           	global	_CCP1CON
+    56  0017                     _CCP1CON  equ     23
+    57                           	global	_CCP2CON
+    58  001D                     _CCP2CON  equ     29
+    59                           	global	_CCPR1H
+    60  0016                     _CCPR1H  equ     22
+    61                           	global	_CCPR1L
+    62  0015                     _CCPR1L  equ     21
+    63                           	global	_CCPR2H
+    64  001C                     _CCPR2H  equ     28
+    65                           	global	_CCPR2L
+    66  001B                     _CCPR2L  equ     27
+    67                           	global	_FSR
+    68  0004                     _FSR  equ     4
+    69                           	global	_INDF
+    70  0000                     _INDF  equ     0
+    71                           	global	_INTCON
+    72  000B                     _INTCON  equ     11
+    73                           	global	_PCL
+    74  0002                     _PCL  equ     2
+    75                           	global	_PCLATH
+    76  000A                     _PCLATH  equ     10
+    77                           	global	_PIR1
+    78  000C                     _PIR1  equ     12
+    79                           	global	_PIR2
+    80  000D                     _PIR2  equ     13
+    81                           	global	_PORTA
+    82  0005                     _PORTA  equ     5
+    83                           	global	_PORTB
+    84  0006                     _PORTB  equ     6
+    85                           	global	_PORTC
+    86  0007                     _PORTC  equ     7
+    87                           	global	_PORTD
+    88  0008                     _PORTD  equ     8
+    89                           	global	_PORTE
+    90  0009                     _PORTE  equ     9
+    91                           	global	_RCREG
+    92  001A                     _RCREG  equ     26
+    93                           	global	_RCSTA
+    94  0018                     _RCSTA  equ     24
+    95                           	global	_SSPBUF
+    96  0013                     _SSPBUF  equ     19
+    97                           	global	_SSPCON
+    98  0014                     _SSPCON  equ     20
+    99                           	global	_STATUS
+   100  0003                     _STATUS  equ     3
+   101                           	global	_T1CON
+   102  0010                     _T1CON  equ     16
+   103                           	global	_T2CON
+   104  0012                     _T2CON  equ     18
+   105                           	global	_TMR0
+   106  0001                     _TMR0  equ     1
+   107                           	global	_TMR1H
+   108  000F                     _TMR1H  equ     15
+   109                           	global	_TMR1L
+   110  000E                     _TMR1L  equ     14
+   111                           	global	_TMR2
+   112  0011                     _TMR2  equ     17
+   113                           	global	_TXREG
+   114  0019                     _TXREG  equ     25
+   115                           	global	_ADCS0
+   116  00FE                     _ADCS0  equ     254
+   117                           	global	_ADCS1
+   118  00FF                     _ADCS1  equ     255
+   119                           	global	_ADDEN
+   120  00C3                     _ADDEN  equ     195
+   121                           	global	_ADGO
+   122  00FA                     _ADGO  equ     250
+   123                           	global	_ADIF
+   124  0066                     _ADIF  equ     102
+   125                           	global	_ADON
+   126  00F8                     _ADON  equ     248
+   127                           	global	_BCLIF
+   128  006B                     _BCLIF  equ     107
+   129                           	global	_CARRY
+   130  0018                     _CARRY  equ     24
+   131                           	global	_CCP1IF
+   132  0062                     _CCP1IF  equ     98
+   133                           	global	_CCP1M0
+   134  00B8                     _CCP1M0  equ     184
+   135                           	global	_CCP1M1
+   136  00B9                     _CCP1M1  equ     185
+   137                           	global	_CCP1M2
+   138  00BA                     _CCP1M2  equ     186
+   139                           	global	_CCP1M3
+   140  00BB                     _CCP1M3  equ     187
+   141                           	global	_CCP1X
+   142  00BD                     _CCP1X  equ     189
+   143                           	global	_CCP1Y
+   144  00BC                     _CCP1Y  equ     188
+   145                           	global	_CCP2IF
+   146  0068                     _CCP2IF  equ     104
+   147                           	global	_CCP2M0
+   148  00E8                     _CCP2M0  equ     232
+   149                           	global	_CCP2M1
+   150  00E9                     _CCP2M1  equ     233
+   151                           	global	_CCP2M2
+   152  00EA                     _CCP2M2  equ     234
+   153                           	global	_CCP2M3
+   154  00EB                     _CCP2M3  equ     235
+   155                           	global	_CCP2X
+   156  00ED                     _CCP2X  equ     237
+   157                           	global	_CCP2Y
+   158  00EC                     _CCP2Y  equ     236
+   159                           	global	_CHS0
+   160  00FB                     _CHS0  equ     251
+   161                           	global	_CHS1
+   162  00FC                     _CHS1  equ     252
+   163                           	global	_CHS2
+   164  00FD                     _CHS2  equ     253
+   165                           	global	_CKP
+   166  00A4                     _CKP  equ     164
+   167                           	global	_CMIF
+   168  006E                     _CMIF  equ     110
+   169                           	global	_CREN
+   170  00C4                     _CREN  equ     196
+   171                           	global	_DC
+   172  0019                     _DC  equ     25
+   173                           	global	_EEIF
+   174  006C                     _EEIF  equ     108
+   175                           	global	_FERR
+   176  00C2                     _FERR  equ     194
+   177                           	global	_GIE
+   178  005F                     _GIE  equ     95
+   179                           	global	_GODONE
+   180  00FA                     _GODONE  equ     250
+   181                           	global	_INTE
+   182  005C                     _INTE  equ     92
+   183                           	global	_INTF
+   184  0059                     _INTF  equ     89
+   185                           	global	_IRP
+   186  001F                     _IRP  equ     31
+   187                           	global	_OERR
+   188  00C1                     _OERR  equ     193
+   189                           	global	_PD
+   190  001B                     _PD  equ     27
+   191                           	global	_PEIE
+   192  005E                     _PEIE  equ     94
+   193                           	global	_PSPIF
+   194  0067                     _PSPIF  equ     103
+   195                           	global	_RA0
+   196  0028                     _RA0  equ     40
+   197                           	global	_RA1
+   198  0029                     _RA1  equ     41
+   199                           	global	_RA2
+   200  002A                     _RA2  equ     42
+   201                           	global	_RA3
+   202  002B                     _RA3  equ     43
+   203                           	global	_RA4
+   204  002C                     _RA4  equ     44
+   205                           	global	_RA5
+   206  002D                     _RA5  equ     45
+   207                           	global	_RB0
+   208  0030                     _RB0  equ     48
+   209+                          	global	_RB1
+   210+ 0031                     _RB1  equ     49
+   211+                          	global	_RB2
+   212+ 0032                     _RB2  equ     50
+   213+                          	global	_RB3
+   214+ 0033                     _RB3  equ     51
+   215+                          	global	_RB4
+   216+ 0034                     _RB4  equ     52
+   217+                          	global	_RB5
+   218+ 0035                     _RB5  equ     53
+   219                           	global	_RB6
+   220  0036                     _RB6  equ     54
+   221                           	global	_RB7
+   222  0037                     _RB7  equ     55
+   223+                          	global	_RBIE
+   224+ 005B                     _RBIE  equ     91
+   225+                          	global	_RBIF
+   226+ 0058                     _RBIF  equ     88
+   227                           	global	_RC0
+   228  0038                     _RC0  equ     56
+   229+                          	global	_RC1
+   230+ 0039                     _RC1  equ     57
+   231                           	global	_RC2
+   232  003A                     _RC2  equ     58
+   233+                          	global	_RC3
+   234+ 003B                     _RC3  equ     59
+   235                           	global	_RC4
+   236  003C                     _RC4  equ     60
+   237+                          	global	_RC5
+   238+ 003D                     _RC5  equ     61
+   239+                          	global	_RC6
+   240+ 003E                     _RC6  equ     62
+   241+                          	global	_RC7
+   242+ 003F                     _RC7  equ     63
+   243+                          	global	_RCIF
+   244+ 0065                     _RCIF  equ     101
+   245+                          	global	_RD0
+   246+ 0040                     _RD0  equ     64
+   247                           	global	_RD1
+   248  0041                     _RD1  equ     65
+   249+                          	global	_RD2
+   250+ 0042                     _RD2  equ     66
+   251+                          	global	_RD3
+   252+ 0043                     _RD3  equ     67
+   253+                          	global	_RD4
+   254+ 0044                     _RD4  equ     68
+   255+                          	global	_RD5
+   256+ 0045                     _RD5  equ     69
+   257+                          	global	_RD6
+   258+ 0046                     _RD6  equ     70
+   259                           	global	_RD7
+   260  0047                     _RD7  equ     71
+   261+                          	global	_RE0
+   262+ 0048                     _RE0  equ     72
+   263                           	global	_RE1
+   264  0049                     _RE1  equ     73
+   265+                          	global	_RE2
+   266+ 004A                     _RE2  equ     74
+   267+                          	global	_RP0
+   268+ 001D                     _RP0  equ     29
+   269+                          	global	_RP1
+   270+ 001E                     _RP1  equ     30
+   271+                          	global	_RX9
+   272+ 00C6                     _RX9  equ     198
+   273+                          	global	_RX9D
+   274+ 00C0                     _RX9D  equ     192
+   275                           	global	_SPEN
+   276  00C7                     _SPEN  equ     199
+   277+                          	global	_SREN
+   278+ 00C5                     _SREN  equ     197
+   279+                          	global	_SSPEN
+   280+ 00A5                     _SSPEN  equ     165
+   281+                          	global	_SSPIF
+   282+ 0063                     _SSPIF  equ     99
+   283+                          	global	_SSPM0
+   284+ 00A0                     _SSPM0  equ     160
+   285+                          	global	_SSPM1
+   286+ 00A1                     _SSPM1  equ     161
+   287                           	global	_SSPM2
+   288  00A2                     _SSPM2  equ     162
+   289+                          	global	_SSPM3
+   290+ 00A3                     _SSPM3  equ     163
+   291+                          	global	_SSPOV
+   292+ 00A6                     _SSPOV  equ     166
+   293+                          	global	_T0IE
+   294+ 005D                     _T0IE  equ     93
+   295+                          	global	_T0IF
+   296+ 005A                     _T0IF  equ     90
+   297+                          	global	_T1CKPS0
+   298+ 0084                     _T1CKPS0  equ     132
+   299+                          	global	_T1CKPS1
+   300+ 0085                     _T1CKPS1  equ     133
+   301+                          	global	_T1OSCEN
+   302+ 0083                     _T1OSCEN  equ     131
+   303                           	global	_T1SYNC
+   304  0082                     _T1SYNC  equ     130
+   305                           	global	_T2CKPS0
+   306  0090                     _T2CKPS0  equ     144
+   307+                          	global	_T2CKPS1
+   308+ 0091                     _T2CKPS1  equ     145
+   309                           	global	_TMR0IE
+   310  005D                     _TMR0IE  equ     93
+   311                           	global	_TMR0IF
+   312  005A                     _TMR0IF  equ     90
+   313+                          	global	_TMR1CS
+   314+ 0081                     _TMR1CS  equ     129
+   315                           	global	_TMR1IF
+   316  0060                     _TMR1IF  equ     96
+   317+                          	global	_TMR1ON
+   318+ 0080                     _TMR1ON  equ     128
+   319                           	global	_TMR2IF
+   320  0061                     _TMR2IF  equ     97
+   321+                          	global	_TMR2ON
+   322+ 0092                     _TMR2ON  equ     146
+   323+                          	global	_TO
+   324+ 001C                     _TO  equ     28
+   325+                          	global	_TOUTPS0
+   326+ 0093                     _TOUTPS0  equ     147
+   327+                          	global	_TOUTPS1
+   328+ 0094                     _TOUTPS1  equ     148
+   329+                          	global	_TOUTPS2
+   330+ 0095                     _TOUTPS2  equ     149
+   331                           	global	_TOUTPS3
+   332  0096                     _TOUTPS3  equ     150
+   333+                          	global	_TXIF
+   334+ 0064                     _TXIF  equ     100
+   335+                          	global	_WCOL
+   336+ 00A7                     _WCOL  equ     167
+   337+                          	global	_ZERO
+   338+ 001A                     _ZERO  equ     26
+   339+                          	global	_ADCON1
+   340+ 009F                     _ADCON1  equ     159
+   341+                          	global	_ADRESL
+   342+ 009E                     _ADRESL  equ     158
+   343                           	global	_CMCON
+   344  009C                     _CMCON  equ     156
+   345+                          	global	_CVRCON
+   346+ 009D                     _CVRCON  equ     157
+   347                           	global	_OPTION
+   348  0081                     _OPTION  equ     129
+   349+                          	global	_PCON
+   350+ 008E                     _PCON  equ     142
+   351+                          	global	_PIE1
+   352+ 008C                     _PIE1  equ     140
+   353+                          	global	_PIE2
+   354+ 008D                     _PIE2  equ     141
+   355+                          	global	_PR2
+   356+ 0092                     _PR2  equ     146
+   357+                          	global	_SPBRG
+   358+ 0099                     _SPBRG  equ     153
+   359                           	global	_SSPADD
+   360  0093                     _SSPADD  equ     147
+   361+                          	global	_SSPCON2
+   362+ 0091                     _SSPCON2  equ     145
+   363+                          	global	_SSPSTAT
+   364+ 0094                     _SSPSTAT  equ     148
+   365+                          	global	_TRISA
+   366+ 0085                     _TRISA  equ     133
+   367+                          	global	_TRISB
+   368+ 0086                     _TRISB  equ     134
+   369+                          	global	_TRISC
+   370+ 0087                     _TRISC  equ     135
+   371                           	global	_TRISD
+   372  0088                     _TRISD  equ     136
+   373+                          	global	_TRISE
+   374+ 0089                     _TRISE  equ     137
+   375                           	global	_TXSTA
+   376  0098                     _TXSTA  equ     152
+   377+                          	global	_ACKDT
+   378+ 048D                     _ACKDT  equ     1165
+   379+                          	global	_ACKEN
+   380+ 048C                     _ACKEN  equ     1164
+   381+                          	global	_ACKSTAT
+   382+ 048E                     _ACKSTAT  equ     1166
+   383+                          	global	_ADCS2
+   384+ 04FE                     _ADCS2  equ     1278
+   385+                          	global	_ADFM
+   386+ 04FF                     _ADFM  equ     1279
+   387                           	global	_ADIE
+   388  0466                     _ADIE  equ     1126
+   389+                          	global	_BCLIE
+   390+ 046B                     _BCLIE  equ     1131
+   391+                          	global	_BF
+   392+ 04A0                     _BF  equ     1184
+   393+                          	global	_BOR
+   394+ 0470                     _BOR  equ     1136
+   395+                          	global	_BRGH
+   396+ 04C2                     _BRGH  equ     1218
+   397+                          	global	_C1INV
+   398+ 04E4                     _C1INV  equ     1252
+   399                           	global	_C1OUT
+   400  04E6                     _C1OUT  equ     1254
+   401+                          	global	_C2INV
+   402+ 04E5                     _C2INV  equ     1253
+   403                           	global	_C2OUT
+   404  04E7                     _C2OUT  equ     1255
+   405+                          	global	_CCP1IE
+   406+ 0462                     _CCP1IE  equ     1122
+   407+                          	global	_CCP2IE
+   408+ 0468                     _CCP2IE  equ     1128
+   409                           	global	_CIS
+   410  04E3                     _CIS  equ     1251
+   411                           	global	_CKE
+   412  04A6                     _CKE  equ     1190
+   413                           	global	_CM0
+   414  04E0                     _CM0  equ     1248
+   415                           	global	_CM1
+   416  04E1                     _CM1  equ     1249
+   417                           	global	_CM2
+   418  04E2                     _CM2  equ     1250
+   419                           	global	_CMIE
+   420  046E                     _CMIE  equ     1134
+   421                           	global	_CSRC
+   422  04C7                     _CSRC  equ     1223
+   423                           	global	_CVR0
+   424  04E8                     _CVR0  equ     1256
+   425                           	global	_CVR1
+   426  04E9                     _CVR1  equ     1257
+   427                           	global	_CVR2
+   428  04EA                     _CVR2  equ     1258
+   429                           	global	_CVR3
+   430  04EB                     _CVR3  equ     1259
+   431                           	global	_CVREN
+   432  04EF                     _CVREN  equ     1263
+   433                           	global	_CVROE
+   434  04EE                     _CVROE  equ     1262
+   435                           	global	_CVRR
+   436  04ED                     _CVRR  equ     1261
+   437                           	global	_DA
+   438  04A5                     _DA  equ     1189
+   439                           	global	_EEIE
+   440  046C                     _EEIE  equ     1132
+   441                           	global	_GCEN
+   442  048F                     _GCEN  equ     1167
+   443                           	global	_IBF
+   444  044F                     _IBF  equ     1103
+   445                           	global	_IBOV
+   446  044D                     _IBOV  equ     1101
+   447                           	global	_INTEDG
+   448  040E                     _INTEDG  equ     1038
+   449                           	global	_OBF
+   450  044E                     _OBF  equ     1102
+   451                           	global	_PCFG0
+   452  04F8                     _PCFG0  equ     1272
+   453                           	global	_PCFG1
+   454  04F9                     _PCFG1  equ     1273
+   455                           	global	_PCFG2
+   456  04FA                     _PCFG2  equ     1274
+   457                           	global	_PCFG3
+   458  04FB                     _PCFG3  equ     1275
+   459                           	global	_PEN
+   460  048A                     _PEN  equ     1162
+   461                           	global	_POR
+   462  0471                     _POR  equ     1137
+   463                           	global	_PS0
+   464  0408                     _PS0  equ     1032
+   465                           	global	_PS1
+   466  0409                     _PS1  equ     1033
+   467                           	global	_PS2
+   468  040A                     _PS2  equ     1034
+   469                           	global	_PSA
+   470  040B                     _PSA  equ     1035
+   471                           	global	_PSPIE
+   472  0467                     _PSPIE  equ     1127
+   473                           	global	_PSPMODE
+   474  044C                     _PSPMODE  equ     1100
+   475                           	global	_RBPU
+   476  040F                     _RBPU  equ     1039
+   477                           	global	_RCEN
+   478  048B                     _RCEN  equ     1163
+   479                           	global	_RCIE
+   480  0465                     _RCIE  equ     1125
+   481                           	global	_RSEN
+   482  0489                     _RSEN  equ     1161
+   483                           	global	_RW
+   484  04A2                     _RW  equ     1186
+   485                           	global	_SEN
+   486  0488                     _SEN  equ     1160
+   487                           	global	_SMP
+   488  04A7                     _SMP  equ     1191
+   489                           	global	_SSPIE
+   490  0463                     _SSPIE  equ     1123
+   491                           	global	_START
+   492  04A3                     _START  equ     1187
+   493                           	global	_STOP
+   494  04A4                     _STOP  equ     1188
+   495                           	global	_SYNC
+   496  04C4                     _SYNC  equ     1220
+   497                           	global	_T0CS
+   498  040D                     _T0CS  equ     1037
+   499                           	global	_T0SE
+   500  040C                     _T0SE  equ     1036
+   501                           	global	_TMR1IE
+   502  0460                     _TMR1IE  equ     1120
+   503                           	global	_TMR2IE
+   504  0461                     _TMR2IE  equ     1121
+   505                           	global	_TRISA0
+   506  0428                     _TRISA0  equ     1064
+   507                           	global	_TRISA1
+   508  0429                     _TRISA1  equ     1065
+   509                           	global	_TRISA2
+   510  042A                     _TRISA2  equ     1066
+   511                           	global	_TRISA3
+   512  042B                     _TRISA3  equ     1067
+   513                           	global	_TRISA4
+   514  042C                     _TRISA4  equ     1068
+   515                           	global	_TRISA5
+   516  042D                     _TRISA5  equ     1069
+   517                           	global	_TRISB0
+   518  0430                     _TRISB0  equ     1072
+   519                           	global	_TRISB1
+   520  0431                     _TRISB1  equ     1073
+   521                           	global	_TRISB2
+   522  0432                     _TRISB2  equ     1074
+   523                           	global	_TRISB3
+   524  0433                     _TRISB3  equ     1075
+   525                           	global	_TRISB4
+   526  0434                     _TRISB4  equ     1076
+   527                           	global	_TRISB5
+   528  0435                     _TRISB5  equ     1077
+   529                           	global	_TRISB6
+   530  0436                     _TRISB6  equ     1078
+   531                           	global	_TRISB7
+   532  0437                     _TRISB7  equ     1079
+   533                           	global	_TRISC0
+   534  0438                     _TRISC0  equ     1080
+   535                           	global	_TRISC1
+   536  0439                     _TRISC1  equ     1081
+   537                           	global	_TRISC2
+   538  043A                     _TRISC2  equ     1082
+   539                           	global	_TRISC3
+   540  043B                     _TRISC3  equ     1083
+   541                           	global	_TRISC4
+   542  043C                     _TRISC4  equ     1084
+   543                           	global	_TRISC5
+   544  043D                     _TRISC5  equ     1085
+   545                           	global	_TRISC6
+   546  043E                     _TRISC6  equ     1086
+   547                           	global	_TRISC7
+   548  043F                     _TRISC7  equ     1087
+   549                           	global	_TRISD0
+   550  0440                     _TRISD0  equ     1088
+   551                           	global	_TRISD1
+   552  0441                     _TRISD1  equ     1089
+   553                           	global	_TRISD2
+   554  0442                     _TRISD2  equ     1090
+   555                           	global	_TRISD3
+   556  0443                     _TRISD3  equ     1091
+   557                           	global	_TRISD4
+   558  0444                     _TRISD4  equ     1092
+   559                           	global	_TRISD5
+   560  0445                     _TRISD5  equ     1093
+   561                           	global	_TRISD6
+   562  0446                     _TRISD6  equ     1094
+   563                           	global	_TRISD7
+   564  0447                     _TRISD7  equ     1095
+   565                           	global	_TRISE0
+   566  0448                     _TRISE0  equ     1096
+   567                           	global	_TRISE1
+   568  0449                     _TRISE1  equ     1097
+   569                           	global	_TRISE2
+   570  044A                     _TRISE2  equ     1098
+   571                           	global	_TRMT
+   572  04C1                     _TRMT  equ     1217
+   573                           	global	_TX9
+   574  04C6                     _TX9  equ     1222
+   575                           	global	_TX9D
+   576  04C0                     _TX9D  equ     1216
+   577                           	global	_TXEN
+   578  04C5                     _TXEN  equ     1221
+   579                           	global	_TXIE
+   580  0464                     _TXIE  equ     1124
+   581                           	global	_UA
+   582  04A1                     _UA  equ     1185
+   583                           	global	_EEADR
+   584  010D                     _EEADR  equ     269
+   585                           	global	_EEADRH
+   586  010F                     _EEADRH  equ     271
+   587                           	global	_EEADRL
+   588  010D                     _EEADRL  equ     269
+   589                           	global	_EEDATA
+   590  010C                     _EEDATA  equ     268
+   591                           	global	_EEDATH
+   592  010E                     _EEDATH  equ     270
+   593                           	global	_EECON1
+   594  018C                     _EECON1  equ     396
+   595                           	global	_EECON2
+   596  018D                     _EECON2  equ     397
+   597                           	global	_EEPGD
+   598  0C67                     _EEPGD  equ     3175
+   599                           	global	_RD
+   600  0C60                     _RD  equ     3168
+   601                           	global	_WR
+   602  0C61                     _WR  equ     3169
+   603                           	global	_WREN
+   604  0C62                     _WREN  equ     3170
+   605                           	global	_WRERR
+   606  0C63                     _WRERR  equ     3171
+   607                           	file	"timer0.as"
+   608                           	line	#
+   609                           psect cinit,class=CODE,delta=2
+   610                           global start_initialization
+   611  07DB                     start_initialization:
+   612                           
+   613                           psect cinit,class=CODE,delta=2
+   614                           global end_of_initialization
+   615                           
+   616                           ;End of C runtime variable initationation code
+   617                           
+   618  07DB                     end_of_initialization:
+   619  07DB  0183               clrf status
+   620  07DC  120A  118A  2FED   ljmp _main	;jump to C main() function
+   621                           psect	cstackCOMMON,class=COMMON,space=1
+   622                           global __pcstackCOMMON
+   623  0070                     __pcstackCOMMON:
+   624                           	global	?_timer0_delay
+   625  0070                     ?_timer0_delay: ;@ 0x0
+   626                           	global	??_timer0_delay
+   627  0070                     ??_timer0_delay: ;@ 0x0
+   628                           	global	?_main
+   629  0070                     ?_main: ;@ 0x0
+   630                           	global	??_main
+   631  0070                     ??_main: ;@ 0x0
+   632                           ;Data sizes: Strings 0, constant 0, data 0, bss 0, persistent 0 stack 0
+   633                           ;Auto spaces:   Size  Autos    Used
+   634                           ; COMMON          14      0       0
+   635                           ; BANK0           80      0       0
+   636                           ; BANK1           80      0       0
+   637                           ; BANK3           96      0       0
+   638                           ; BANK2           96      0       0
+   639                           
+   640                           
+   641                           ;Pointer list with targets:
+   642                           
+   643                           
+   644                           
+   645                           ;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   646                           
+   647                           
+   648                           ;Call graph:                      Base Space Used Autos Args Refs Density
+   649                           ;_main                                                0    0    0   0.00
+   650                           ;       _timer0_delay
+   651                           ;  _timer0_delay                                      0    0    0   0.00
+   652                           ; Estimated maximum call depth 1
+   653                           ; Address spaces:
+   654                           
+   655                           ;Name               Size   Autos  Total    Cost      Usage
+   656                           ;BITCOMMON            E      0       0       0        0.0%
+   657                           ;CODE                 0      0       0       0        0.0%
+   658                           ;NULL                 0      0       0       0        0.0%
+   659                           ;COMMON               E      0       0       1        0.0%
+   660                           ;SFR0                 0      0       0       1        0.0%
+   661                           ;BITSFR0              0      0       0       1        0.0%
+   662                           ;BITSFR1              0      0       0       2        0.0%
+   663                           ;SFR1                 0      0       0       2        0.0%
+   664                           ;ABS                  0      0       0       2        0.0%
+   665                           ;STACK                0      0       0       3        0.0%
+   666                           ;BITBANK0            50      0       0       4        0.0%
+   667                           ;SFR3                 0      0       0       4        0.0%
+   668                           ;BITSFR3              0      0       0       4        0.0%
+   669                           ;BANK0               50      0       0       5        0.0%
+   670                           ;BITSFR2              0      0       0       5        0.0%
+   671                           ;SFR2                 0      0       0       5        0.0%
+   672                           ;BITBANK1            50      0       0       6        0.0%
+   673                           ;BANK1               50      0       0       7        0.0%
+   674                           ;BITBANK3            60      0       0       8        0.0%
+   675                           ;BANK3               60      0       0       9        0.0%
+   676                           ;BITBANK2            60      0       0      10        0.0%
+   677                           ;BANK2               60      0       0      11        0.0%
+   678                           ;DATA                 0      0       0      12        0.0%
+   679                           ;EEDATA             100      0       0    1000        0.0%
+   680                           
+   681                           	global	_main
+   682                           psect	maintext,local,class=CODE,delta=2
+   683                           global __pmaintext
+   684  07ED                     __pmaintext:
+   685                           
+   686                           ; *************** function _main *****************
+   687                           ; Defined at:
+   688                           ;		line 22 in file "C:\Users\Jarvis\Desktop\PIC16f877a_coding\timer0\timer0.c"
+   689                           ; Parameters:    Size  Location     Type
+   690                           ;		None
+   691                           ; Auto vars:     Size  Location     Type
+   692                           ;		None
+   693                           ; Return value:  Size  Location     Type
+   694                           ;		None               void
+   695                           ; Registers used:
+   696                           ;		wreg, status,2, status,0, pclath, cstack
+   697                           ; Tracked objects:
+   698                           ;		On entry : 17F/0
+   699                           ;		On exit  : 0/0
+   700                           ;		Unchanged: 0/0
+   701                           ; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   702                           ;      Locals:         0       0       0       0       0
+   703                           ;      Temp:     0
+   704                           ;      Total:    0
+   705                           ; This function calls:
+   706                           ;		_timer0_delay
+   707                           ; This function is called by:
+   708                           ;		Startup code after reset
+   709                           ; This function uses a non-reentrant model
+   710                           ; 
+   711                           psect	maintext
+   712                           	file	"C:\Users\Jarvis\Desktop\PIC16f877a_coding\timer0\timer0.c"
+   713                           	line	22
+   714                           	global	__size_of_main
+   715  0013                     	__size_of_main	equ	__end_of_main-_main
+   716                           ;timer0.c: 21: void main()
+   717                           ;timer0.c: 22: {
+   718                           	
+   719  07ED                     _main:	
+   720                           	opt stack 8
+   721                           ; Regs used in _main: [wreg+status,2+status,0+pclath+cstack]
+   722                           	line	23
+   723                           	
+   724  07ED                     l30000369:	
+   725                           ;timer0.c: 23: TRISB=0x00;
+   726  07ED  1003               	clrc
+   727  07EE  3000               	movlw	0
+   728  07EF  1803               	btfsc	status,0
+   729  07F0  3001               	movlw	1
+   730  07F1  1683               	bsf	status, 5	;RP0=1, select bank1
+   731  07F2  1303               	bcf	status, 6	;RP1=0, select bank1
+   732  07F3  0086               	movwf	(134)^080h	;volatile
+   733                           	
+   734  07F4                     l30000370:	
+   735                           	line	27
+   736                           ;timer0.c: 25: {
+   737                           ;timer0.c: 27: PORTB=~PORTB;
+   738  07F4  1283               	bcf	status, 5	;RP0=0, select bank0
+   739  07F5  1303               	bcf	status, 6	;RP1=0, select bank0
+   740  07F6  0986               	comf	(6),f	;volatile
+   741                           	
+   742  07F7                     l30000371:	
+   743                           	line	29
+   744                           ;timer0.c: 29: timer0_delay();
+   745  07F7  120A  118A  27DF   	fcall	_timer0_delay
+              120A  118A         
+   746  07FC  2FF4               	goto	l30000370
+   747                           	global	start
+   748  07FD  120A  118A  2800   	ljmp	start
+   749                           	opt stack 0
+   750                           GLOBAL	__end_of_main
+   751  0800                     	__end_of_main:
+   752                           ; =============== function _main ends ============
+   753                           
+   754                           psect	maintext
+   755                           	line	35
+   756                           	signat	_main,88
+   757                           	global	_timer0_delay
+   758                           psect	text9,local,class=CODE,delta=2
+   759                           global __ptext9
+   760  07DF                     __ptext9:
+   761                           
+   762                           ; *************** function _timer0_delay *****************
+   763                           ; Defined at:
+   764                           ;		line 14 in file "C:\Users\Jarvis\Desktop\PIC16f877a_coding\timer0\timer0.c"
+   765                           ; Parameters:    Size  Location     Type
+   766                           ;		None
+   767                           ; Auto vars:     Size  Location     Type
+   768                           ;		None
+   769                           ; Return value:  Size  Location     Type
+   770                           ;		None               void
+   771                           ; Registers used:
+   772                           ;		wreg, status,2, status,0
+   773                           ; Tracked objects:
+   774                           ;		On entry : 0/0
+   775                           ;		On exit  : 0/0
+   776                           ;		Unchanged: 0/0
+   777                           ; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   778                           ;      Locals:         0       0       0       0       0
+   779                           ;      Temp:     0
+   780                           ;      Total:    0
+   781                           ; This function calls:
+   782                           ;		Nothing
+   783                           ; This function is called by:
+   784                           ;		_main
+   785                           ; This function uses a non-reentrant model
+   786                           ; 
+   787                           psect	text9
+   788                           	file	"C:\Users\Jarvis\Desktop\PIC16f877a_coding\timer0\timer0.c"
+   789                           	line	14
+   790                           	global	__size_of_timer0_delay
+   791  000E                     	__size_of_timer0_delay	equ	__end_of_timer0_delay-_timer0_delay
+   792                           ;timer0.c: 13: void timer0_delay()
+   793                           ;timer0.c: 14: {
+   794                           	
+   795  07DF                     _timer0_delay:	
+   796                           	opt stack 7
+   797                           ; Regs used in _timer0_delay: [wreg+status,2+status,0]
+   798                           	line	15
+   799                           	
+   800  07DF                     l30000368:	
+   801                           ;timer0.c: 15: TMR0=0x00;
+   802  07DF  1003               	clrc
+   803  07E0  3000               	movlw	0
+   804  07E1  1803               	btfsc	status,0
+   805  07E2  3001               	movlw	1
+   806  07E3  1283               	bcf	status, 5	;RP0=0, select bank0
+   807  07E4  1303               	bcf	status, 6	;RP1=0, select bank0
+   808  07E5  0081               	movwf	(1)	;volatile
+   809                           	
+   810  07E6                     l3:	
+   811                           	line	17
+   812  07E6  110B               	bcf	(90/8),(90)&7
+   813  07E7  190B               	btfsc	(90/8),(90)&7
+   814  07E8  2FEA               	goto	u11
+   815  07E9  2FEB               	goto	u10
+   816  07EA                     u11:
+   817  07EA  2FE6               	goto	l3
+   818  07EB                     u10:
+   819                           	
+   820  07EB                     l5:	
+   821                           	line	18
+   822                           ;timer0.c: 18: TMR0IF=0;
+   823  07EB  110B               	bcf	(90/8),(90)&7
+   824                           	
+   825  07EC                     l2:	
+   826  07EC  0008               	return
+   827                           	opt stack 0
+   828                           GLOBAL	__end_of_timer0_delay
+   829  07ED                     	__end_of_timer0_delay:
+   830                           ; =============== function _timer0_delay ends ============
+   831                           
+   832                           psect	text10,local,class=CODE,delta=2
+   833                           global __ptext10
+   834  0003                     __ptext10:
+
+
+HI-TECH Software PICC Macro Assembler V9.70 build 5239 
+Symbol Table                                                                                   Sun Oct 09 09:36:21 2016
+
+                    l2 07EC                      l3 07E6                      l5 07EB                     _DA 04A5  
+                   _BF 04A0                     _DC 0019                     _PD 001B                     _RD 0C60  
+                   u10 07EB                     u11 07EA                     _UA 04A1                     _TO 001C  
+                   _RW 04A2                     _WR 0C61                    _CM0 04E0                    _CM1 04E1  
+                  _CM2 04E2                    _CKE 04A6                    _IBF 044F                    _CIS 04E3  
+                  _CKP 00A4                    _GIE 005F                    _BOR 0470                    _RA0 0028  
+                  _RA1 0029                    _RB0 0030                    _RA2 002A                    _RB1 0031  
+                  _RA3 002B                    _RC0 0038                    _RB2 0032                    _RA4 002C  
+                  _RC1 0039                    _RB3 0033                    _RA5 002D                    _RD0 0040  
+                  _RC2 003A                    _RB4 0034                    _RD1 0041                    _RC3 003B  
+                  _RB5 0035                    _RE0 0048                    _RD2 0042                    _RC4 003C  
+                  _RB6 0036                    _RE1 0049                    _RD3 0043                    _RC5 003D  
+                  _RB7 0037                    _RE2 004A                    _RD4 0044                    _RC6 003E  
+                  _RD5 0045                    _RC7 003F                    _OBF 044E                    _RD6 0046  
+                  _RD7 0047                    _FSR 0004                    _PCL 0002                    _PS0 0408  
+                  _PR2 0092                    _PS1 0409                    _PS2 040A                    _PEN 048A  
+                  _RP0 001D                    _IRP 001F                    _RP1 001E                    _SEN 0488  
+                  _PSA 040B                    _POR 0471                    _RX9 00C6                    _SMP 04A7  
+                  _TX9 04C6                   _ADIE 0466                   _ADIF 0066                   _ADFM 04FF  
+                 _ADGO 00FA               __ptext10 0003                   _ADON 00F8                   _CHS0 00FB  
+                 _CHS1 00FC                   _CHS2 00FD                   _EEIE 046C                   _EEIF 006C  
+                 _GCEN 048F                   _CMIE 046E                   _CMIF 006E                   _BRGH 04C2  
+                 _T0IE 005D                   _T0IF 005A                   _CREN 00C4                   _T0CS 040D  
+                 _FERR 00C2                   _IBOV 044D                   _CVR0 04E8                   _CVR1 04E9  
+                 _CVR2 04EA                   _CVR3 04EB                   _T0SE 040C                   _CSRC 04C7  
+                 _INDF 0000                   _PIE1 008C                   _PIE2 008D                   _CVRR 04ED  
+                 _PEIE 005E                   _INTE 005C                   _INTF 0059                   _RBIE 005B  
+                 _RBIF 0058                   _RCIE 0465                   _RCEN 048B                   _RCIF 0065  
+                 _PCON 008E                   _PIR1 000C                   _PIR2 000D                   _OERR 00C1  
+                 _RBPU 040F                   _RX9D 00C0                   _TMR0 0001                   _TMR2 0011  
+                 _WCOL 00A7                   _SPEN 00C7                   _RSEN 0489                   _TX9D 04C0  
+                 _SREN 00C5                   _TRMT 04C1                   _STOP 04A4                   _TXIE 0464  
+                 _ZERO 001A                   _WREN 0C62                   _TXEN 04C5                   _TXIF 0064  
+                 _SYNC 04C4                   _main 07ED                   start 0000         ??_timer0_delay 0070  
+  start_initialization 07DB                _CCP1CON 0017                _CCP2CON 001D                _ACKSTAT 048E  
+                _C1INV 04E4                  _C2INV 04E5                  _C1OUT 04E6                  _C2OUT 04E7  
+                _ADCS0 00FE                  _ADCS1 00FF                  _ADCS2 04FE                  _ADDEN 00C3  
+                ?_main 0070                  _ACKEN 048C                  _ACKDT 048D                  _BCLIE 046B  
+                _BCLIF 006B                  _CCP1X 00BD                  _CCP1Y 00BC                  _CCP2X 00ED  
+                _CCP2Y 00EC                  _EEADR 010D                  _CARRY 0018                  _EEPGD 0C67  
+                _CMCON 009C                  _T1CON 0010                  _T2CON 0012                _T1CKPS0 0084  
+              _T1CKPS1 0085                  _PCFG0 04F8                  _PCFG1 04F9                  _PCFG2 04FA  
+                _PCFG3 04FB                _T2CKPS0 0090                _T2CKPS1 0091                  _CVREN 04EF  
+                _CVROE 04EE                  _RCREG 001A                  _RCSTA 0018                  _TMR1H 000F  
+                _TMR1L 000E                  _SPBRG 0099                  _PORTA 0005                  _PORTB 0006  
+              _T1OSCEN 0083                  _PORTC 0007                  _PORTD 0008                  _PORTE 0009  
+                _PSPIE 0467                  _PSPIF 0067                  _START 04A3                  _SSPM0 00A0  
+                _SSPM1 00A1                  _SSPM2 00A2                  _SSPM3 00A3                  _TRISA 0085  
+                _TRISB 0086                  _TRISC 0087                  _TRISD 0088                  _SSPIE 0463  
+                _TRISE 0089                  _SSPIF 0063                  _SSPEN 00A5                  _SSPOV 00A6  
+                _WRERR 0C63                  _TXREG 0019                  _TXSTA 0098         __pcstackCOMMON 0070  
+              _PSPMODE 044C                _SSPCON2 0091                _SSPSTAT 0094                _TOUTPS0 0093  
+              _TOUTPS1 0094                _TOUTPS2 0095                _TOUTPS3 0096                  status 0003  
+         _timer0_delay 07DF          __size_of_main 0013               l30000370 07F4               l30000371 07F7  
+             l30000368 07DF               l30000369 07ED   __end_of_timer0_delay 07ED                 ??_main 0070  
+              __ptext8 0003                __ptext9 07DF             __pmaintext 07ED                 _ADCON0 001F  
+               _ADCON1 009F                 _CCP1M0 00B8                 _CCP1M1 00B9                 _CCP1M2 00BA  
+               _CCP1M3 00BB                 _CCP2M0 00E8                 _CCP2M1 00E9                 _CCP2M2 00EA  
+               _CCP2M3 00EB                 _CCP1IE 0462                 _CCP1IF 0062                 _CCP2IE 0468  
+               _CCP2IF 0068                 _ADRESH 001E                 _EEADRH 010F                 _ADRESL 009E  
+               _EEADRL 010D                 _EEDATA 010C                 _CCPR1H 0016                 _EEDATH 010E  
+               _CCPR2H 001C                 _CCPR1L 0015                 _CCPR2L 001B                 _EECON1 018C  
+               _EECON2 018D           __end_of_main 0800                 _GODONE 00FA   end_of_initialization 07DB  
+               _CVRCON 009D                 _T1SYNC 0082                 _INTEDG 040E                 _PCLATH 000A  
+               _INTCON 000B                 _TMR0IE 005D                 _TMR0IF 005A                 _TMR1IE 0460  
+               _TMR1IF 0060                 _TMR1CS 0081                 _TMR2IE 0461                 _TMR2IF 0061  
+               _OPTION 0081                 _TMR1ON 0080                 _TMR2ON 0092                 _SSPADD 0093  
+               _TRISA0 0428                 _TRISA1 0429                 _TRISB0 0430                 _TRISA2 042A  
+               _TRISB1 0431                 _TRISA3 042B                 _TRISC0 0438                 _TRISB2 0432  
+               _TRISA4 042C                 _TRISC1 0439                 _TRISB3 0433                 _TRISA5 042D  
+               _TRISD0 0440                 _TRISC2 043A                 _TRISB4 0434                 _TRISD1 0441  
+               _TRISC3 043B                 _TRISB5 0435                 _TRISE0 0448                 _TRISD2 0442  
+               _TRISC4 043C                 _TRISB6 0436                 _TRISE1 0449                 _TRISD3 0443  
+               _TRISC5 043D                 _TRISB7 0437                 _TRISE2 044A                 _TRISD4 0444  
+               _TRISC6 043E                 _TRISD5 0445                 _TRISC7 043F                 _TRISD6 0446  
+               _TRISD7 0447                 _STATUS 0003                 _SSPCON 0014                 _SSPBUF 0013  
+        ?_timer0_delay 0070  __size_of_timer0_delay 000E  

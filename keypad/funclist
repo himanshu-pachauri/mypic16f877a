@@ -1,0 +1,10 @@
+_lcd_command: CODE, 1200 0 85
+___aldiv: CODE, 1514 0 162
+_lcd_data: CODE, 1121 0 79
+_main: CODE, 1009 0 40
+_keypad: CODE, 1285 0 97
+___almod: CODE, 1382 0 132
+___lmul: CODE, 1049 0 72
+_lcd_integer: CODE, 1676 0 372
+_lcd_init: CODE, 971 0 38
+Total: 1077

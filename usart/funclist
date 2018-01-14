@@ -1,0 +1,7 @@
+_lcd_command: CODE, 1963 0 85
+_lcd_data: CODE, 1884 0 79
+_main: CODE, 1815 0 31
+_usart_ini: CODE, 1798 0 17
+_usart_rx: CODE, 1789 0 9
+_lcd_init: CODE, 1846 0 38
+Total: 259

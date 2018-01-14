@@ -1,0 +1,1619 @@
+
+
+HI-TECH Software PIC LITE Macro Assembler V9.70 build 5239 
+                                                                                               Wed Oct 12 07:09:52 2016
+
+HI-TECH Software Omniscient Code Generator (Lite mode) build 5239
+     1  0000                     opt subtitle "HI-TECH Software Omniscient Code Generator (Lite mode) build 5239"
+     2                           
+     3                           opt pagewidth 120
+     4                           
+     5                           	opt lm
+     6                           
+     7                           	processor	16F877A
+     8                           clrc	macro
+     9                           	bcf	3,0
+    10  0000                     	endm
+    11                           clrz	macro
+    12                           	bcf	3,2
+    13  0000                     	endm
+    14                           setc	macro
+    15                           	bsf	3,0
+    16  0000                     	endm
+    17                           setz	macro
+    18                           	bsf	3,2
+    19  0000                     	endm
+    20                           skipc	macro
+    21                           	btfss	3,0
+    22  0000                     	endm
+    23                           skipz	macro
+    24                           	btfss	3,2
+    25  0000                     	endm
+    26                           skipnc	macro
+    27                           	btfsc	3,0
+    28  0000                     	endm
+    29                           skipnz	macro
+    30                           	btfsc	3,2
+    31  0000                     	endm
+    32  0000                     indf	equ	0
+    33  0000                     indf0	equ	0
+    34  0002                     pc	equ	2
+    35  0002                     pcl	equ	2
+    36  0003                     status	equ	3
+    37  0004                     fsr	equ	4
+    38  0004                     fsr0	equ	4
+    39  0001                     c	equ	1
+    40  0000                     z	equ	0
+    41  000A                     pclath	equ	10
+    42                           # 4 "C:\Users\Jarvis\Desktop\PIC16f877a_coding\usart_sync\usart_slave\usart_slave.c"
+    43                           	psect config,class=CONFIG,delta=2 ;#
+    44                           # 4 "C:\Users\Jarvis\Desktop\PIC16f877a_coding\usart_sync\usart_slave\usart_slave.c"
+    45  2007  3A3B               	dw 0x3a3b ;#
+    46                           	FNCALL	_main,_lcd_init
+    47                           	FNCALL	_main,_usart_slave_ini_tx
+    48                           	FNCALL	_main,_usart_tx
+    49                           	FNCALL	_lcd_init,_lcd_command
+    50                           	FNCALL	_lcd_init,_lcd_data
+    51                           	FNROOT	_main
+    52                           	global	_ADCON0
+    53                           psect	text24,local,class=CODE,delta=2
+    54                           global __ptext24
+    55  0003                     __ptext24:
+    56  001F                     _ADCON0  equ     31
+    57                           	global	_ADRESH
+    58  001E                     _ADRESH  equ     30
+    59                           	global	_CCP1CON
+    60  0017                     _CCP1CON  equ     23
+    61                           	global	_CCP2CON
+    62  001D                     _CCP2CON  equ     29
+    63                           	global	_CCPR1H
+    64  0016                     _CCPR1H  equ     22
+    65                           	global	_CCPR1L
+    66  0015                     _CCPR1L  equ     21
+    67                           	global	_CCPR2H
+    68  001C                     _CCPR2H  equ     28
+    69                           	global	_CCPR2L
+    70  001B                     _CCPR2L  equ     27
+    71                           	global	_FSR
+    72  0004                     _FSR  equ     4
+    73                           	global	_INDF
+    74  0000                     _INDF  equ     0
+    75                           	global	_INTCON
+    76  000B                     _INTCON  equ     11
+    77                           	global	_PCL
+    78  0002                     _PCL  equ     2
+    79                           	global	_PCLATH
+    80  000A                     _PCLATH  equ     10
+    81                           	global	_PIR1
+    82  000C                     _PIR1  equ     12
+    83                           	global	_PIR2
+    84  000D                     _PIR2  equ     13
+    85                           	global	_PORTA
+    86  0005                     _PORTA  equ     5
+    87                           	global	_PORTB
+    88  0006                     _PORTB  equ     6
+    89                           	global	_PORTC
+    90  0007                     _PORTC  equ     7
+    91                           	global	_PORTD
+    92  0008                     _PORTD  equ     8
+    93                           	global	_PORTE
+    94  0009                     _PORTE  equ     9
+    95                           	global	_RCREG
+    96  001A                     _RCREG  equ     26
+    97                           	global	_RCSTA
+    98  0018                     _RCSTA  equ     24
+    99                           	global	_SSPBUF
+   100  0013                     _SSPBUF  equ     19
+   101                           	global	_SSPCON
+   102  0014                     _SSPCON  equ     20
+   103                           	global	_STATUS
+   104  0003                     _STATUS  equ     3
+   105                           	global	_T1CON
+   106  0010                     _T1CON  equ     16
+   107                           	global	_T2CON
+   108  0012                     _T2CON  equ     18
+   109                           	global	_TMR0
+   110  0001                     _TMR0  equ     1
+   111                           	global	_TMR1H
+   112  000F                     _TMR1H  equ     15
+   113                           	global	_TMR1L
+   114  000E                     _TMR1L  equ     14
+   115                           	global	_TMR2
+   116  0011                     _TMR2  equ     17
+   117                           	global	_TXREG
+   118  0019                     _TXREG  equ     25
+   119                           	global	_ADCS0
+   120  00FE                     _ADCS0  equ     254
+   121                           	global	_ADCS1
+   122  00FF                     _ADCS1  equ     255
+   123                           	global	_ADDEN
+   124  00C3                     _ADDEN  equ     195
+   125                           	global	_ADGO
+   126  00FA                     _ADGO  equ     250
+   127                           	global	_ADIF
+   128  0066                     _ADIF  equ     102
+   129                           	global	_ADON
+   130  00F8                     _ADON  equ     248
+   131                           	global	_BCLIF
+   132  006B                     _BCLIF  equ     107
+   133                           	global	_CARRY
+   134  0018                     _CARRY  equ     24
+   135                           	global	_CCP1IF
+   136  0062                     _CCP1IF  equ     98
+   137                           	global	_CCP1M0
+   138  00B8                     _CCP1M0  equ     184
+   139                           	global	_CCP1M1
+   140  00B9                     _CCP1M1  equ     185
+   141                           	global	_CCP1M2
+   142  00BA                     _CCP1M2  equ     186
+   143                           	global	_CCP1M3
+   144  00BB                     _CCP1M3  equ     187
+   145                           	global	_CCP1X
+   146  00BD                     _CCP1X  equ     189
+   147                           	global	_CCP1Y
+   148  00BC                     _CCP1Y  equ     188
+   149                           	global	_CCP2IF
+   150  0068                     _CCP2IF  equ     104
+   151                           	global	_CCP2M0
+   152  00E8                     _CCP2M0  equ     232
+   153                           	global	_CCP2M1
+   154  00E9                     _CCP2M1  equ     233
+   155                           	global	_CCP2M2
+   156  00EA                     _CCP2M2  equ     234
+   157                           	global	_CCP2M3
+   158  00EB                     _CCP2M3  equ     235
+   159                           	global	_CCP2X
+   160  00ED                     _CCP2X  equ     237
+   161                           	global	_CCP2Y
+   162  00EC                     _CCP2Y  equ     236
+   163                           	global	_CHS0
+   164  00FB                     _CHS0  equ     251
+   165                           	global	_CHS1
+   166  00FC                     _CHS1  equ     252
+   167                           	global	_CHS2
+   168  00FD                     _CHS2  equ     253
+   169                           	global	_CKP
+   170  00A4                     _CKP  equ     164
+   171                           	global	_CMIF
+   172  006E                     _CMIF  equ     110
+   173                           	global	_CREN
+   174  00C4                     _CREN  equ     196
+   175                           	global	_DC
+   176  0019                     _DC  equ     25
+   177                           	global	_EEIF
+   178  006C                     _EEIF  equ     108
+   179                           	global	_FERR
+   180  00C2                     _FERR  equ     194
+   181                           	global	_GIE
+   182  005F                     _GIE  equ     95
+   183                           	global	_GODONE
+   184  00FA                     _GODONE  equ     250
+   185                           	global	_INTE
+   186  005C                     _INTE  equ     92
+   187                           	global	_INTF
+   188  0059                     _INTF  equ     89
+   189                           	global	_IRP
+   190  001F                     _IRP  equ     31
+   191                           	global	_OERR
+   192  00C1                     _OERR  equ     193
+   193                           	global	_PD
+   194  001B                     _PD  equ     27
+   195                           	global	_PEIE
+   196  005E                     _PEIE  equ     94
+   197                           	global	_PSPIF
+   198  0067                     _PSPIF  equ     103
+   199                           	global	_RA0
+   200  0028                     _RA0  equ     40
+   201                           	global	_RA1
+   202  0029                     _RA1  equ     41
+   203                           	global	_RA2
+   204  002A                     _RA2  equ     42
+   205                           	global	_RA3
+   206  002B                     _RA3  equ     43
+   207                           	global	_RA4
+   208  002C                     _RA4  equ     44
+   209                           	global	_RA5
+   210  002D                     _RA5  equ     45
+   211                           	global	_RB0
+   212  0030                     _RB0  equ     48
+   213+                          	global	_RB1
+   214+ 0031                     _RB1  equ     49
+   215+                          	global	_RB2
+   216+ 0032                     _RB2  equ     50
+   217+                          	global	_RB3
+   218+ 0033                     _RB3  equ     51
+   219+                          	global	_RB4
+   220+ 0034                     _RB4  equ     52
+   221+                          	global	_RB5
+   222+ 0035                     _RB5  equ     53
+   223                           	global	_RB6
+   224  0036                     _RB6  equ     54
+   225+                          	global	_RB7
+   226+ 0037                     _RB7  equ     55
+   227                           	global	_RBIE
+   228  005B                     _RBIE  equ     91
+   229+                          	global	_RBIF
+   230+ 0058                     _RBIF  equ     88
+   231+                          	global	_RC0
+   232+ 0038                     _RC0  equ     56
+   233+                          	global	_RC1
+   234+ 0039                     _RC1  equ     57
+   235+                          	global	_RC2
+   236+ 003A                     _RC2  equ     58
+   237+                          	global	_RC3
+   238+ 003B                     _RC3  equ     59
+   239                           	global	_RC4
+   240  003C                     _RC4  equ     60
+   241+                          	global	_RC5
+   242+ 003D                     _RC5  equ     61
+   243+                          	global	_RC6
+   244+ 003E                     _RC6  equ     62
+   245+                          	global	_RC7
+   246+ 003F                     _RC7  equ     63
+   247+                          	global	_RCIF
+   248+ 0065                     _RCIF  equ     101
+   249+                          	global	_RD0
+   250+ 0040                     _RD0  equ     64
+   251                           	global	_RD1
+   252  0041                     _RD1  equ     65
+   253+                          	global	_RD2
+   254+ 0042                     _RD2  equ     66
+   255                           	global	_RD3
+   256  0043                     _RD3  equ     67
+   257+                          	global	_RD4
+   258+ 0044                     _RD4  equ     68
+   259+                          	global	_RD5
+   260+ 0045                     _RD5  equ     69
+   261+                          	global	_RD6
+   262+ 0046                     _RD6  equ     70
+   263+                          	global	_RD7
+   264+ 0047                     _RD7  equ     71
+   265+                          	global	_RE0
+   266+ 0048                     _RE0  equ     72
+   267                           	global	_RE1
+   268  0049                     _RE1  equ     73
+   269+                          	global	_RE2
+   270+ 004A                     _RE2  equ     74
+   271+                          	global	_RP0
+   272+ 001D                     _RP0  equ     29
+   273+                          	global	_RP1
+   274+ 001E                     _RP1  equ     30
+   275+                          	global	_RX9
+   276+ 00C6                     _RX9  equ     198
+   277+                          	global	_RX9D
+   278+ 00C0                     _RX9D  equ     192
+   279                           	global	_SPEN
+   280  00C7                     _SPEN  equ     199
+   281+                          	global	_SREN
+   282+ 00C5                     _SREN  equ     197
+   283                           	global	_SSPEN
+   284  00A5                     _SSPEN  equ     165
+   285+                          	global	_SSPIF
+   286+ 0063                     _SSPIF  equ     99
+   287+                          	global	_SSPM0
+   288+ 00A0                     _SSPM0  equ     160
+   289+                          	global	_SSPM1
+   290+ 00A1                     _SSPM1  equ     161
+   291+                          	global	_SSPM2
+   292+ 00A2                     _SSPM2  equ     162
+   293+                          	global	_SSPM3
+   294+ 00A3                     _SSPM3  equ     163
+   295                           	global	_SSPOV
+   296  00A6                     _SSPOV  equ     166
+   297                           	global	_T0IE
+   298  005D                     _T0IE  equ     93
+   299+                          	global	_T0IF
+   300+ 005A                     _T0IF  equ     90
+   301                           	global	_T1CKPS0
+   302  0084                     _T1CKPS0  equ     132
+   303                           	global	_T1CKPS1
+   304  0085                     _T1CKPS1  equ     133
+   305+                          	global	_T1OSCEN
+   306+ 0083                     _T1OSCEN  equ     131
+   307                           	global	_T1SYNC
+   308  0082                     _T1SYNC  equ     130
+   309+                          	global	_T2CKPS0
+   310+ 0090                     _T2CKPS0  equ     144
+   311                           	global	_T2CKPS1
+   312  0091                     _T2CKPS1  equ     145
+   313+                          	global	_TMR0IE
+   314+ 005D                     _TMR0IE  equ     93
+   315+                          	global	_TMR0IF
+   316+ 005A                     _TMR0IF  equ     90
+   317+                          	global	_TMR1CS
+   318+ 0081                     _TMR1CS  equ     129
+   319+                          	global	_TMR1IF
+   320+ 0060                     _TMR1IF  equ     96
+   321+                          	global	_TMR1ON
+   322+ 0080                     _TMR1ON  equ     128
+   323                           	global	_TMR2IF
+   324  0061                     _TMR2IF  equ     97
+   325                           	global	_TMR2ON
+   326  0092                     _TMR2ON  equ     146
+   327+                          	global	_TO
+   328+ 001C                     _TO  equ     28
+   329+                          	global	_TOUTPS0
+   330+ 0093                     _TOUTPS0  equ     147
+   331+                          	global	_TOUTPS1
+   332+ 0094                     _TOUTPS1  equ     148
+   333+                          	global	_TOUTPS2
+   334+ 0095                     _TOUTPS2  equ     149
+   335                           	global	_TOUTPS3
+   336  0096                     _TOUTPS3  equ     150
+   337+                          	global	_TXIF
+   338+ 0064                     _TXIF  equ     100
+   339                           	global	_WCOL
+   340  00A7                     _WCOL  equ     167
+   341+                          	global	_ZERO
+   342+ 001A                     _ZERO  equ     26
+   343+                          	global	_ADCON1
+   344+ 009F                     _ADCON1  equ     159
+   345+                          	global	_ADRESL
+   346+ 009E                     _ADRESL  equ     158
+   347+                          	global	_CMCON
+   348+ 009C                     _CMCON  equ     156
+   349+                          	global	_CVRCON
+   350+ 009D                     _CVRCON  equ     157
+   351                           	global	_OPTION
+   352  0081                     _OPTION  equ     129
+   353+                          	global	_PCON
+   354+ 008E                     _PCON  equ     142
+   355+                          	global	_PIE1
+   356+ 008C                     _PIE1  equ     140
+   357+                          	global	_PIE2
+   358+ 008D                     _PIE2  equ     141
+   359+                          	global	_PR2
+   360+ 0092                     _PR2  equ     146
+   361+                          	global	_SPBRG
+   362+ 0099                     _SPBRG  equ     153
+   363                           	global	_SSPADD
+   364  0093                     _SSPADD  equ     147
+   365+                          	global	_SSPCON2
+   366+ 0091                     _SSPCON2  equ     145
+   367                           	global	_SSPSTAT
+   368  0094                     _SSPSTAT  equ     148
+   369+                          	global	_TRISA
+   370+ 0085                     _TRISA  equ     133
+   371+                          	global	_TRISB
+   372+ 0086                     _TRISB  equ     134
+   373+                          	global	_TRISC
+   374+ 0087                     _TRISC  equ     135
+   375+                          	global	_TRISD
+   376+ 0088                     _TRISD  equ     136
+   377+                          	global	_TRISE
+   378+ 0089                     _TRISE  equ     137
+   379                           	global	_TXSTA
+   380  0098                     _TXSTA  equ     152
+   381+                          	global	_ACKDT
+   382+ 048D                     _ACKDT  equ     1165
+   383+                          	global	_ACKEN
+   384+ 048C                     _ACKEN  equ     1164
+   385+                          	global	_ACKSTAT
+   386+ 048E                     _ACKSTAT  equ     1166
+   387+                          	global	_ADCS2
+   388+ 04FE                     _ADCS2  equ     1278
+   389+                          	global	_ADFM
+   390+ 04FF                     _ADFM  equ     1279
+   391                           	global	_ADIE
+   392  0466                     _ADIE  equ     1126
+   393+                          	global	_BCLIE
+   394+ 046B                     _BCLIE  equ     1131
+   395                           	global	_BF
+   396  04A0                     _BF  equ     1184
+   397+                          	global	_BOR
+   398+ 0470                     _BOR  equ     1136
+   399+                          	global	_BRGH
+   400+ 04C2                     _BRGH  equ     1218
+   401+                          	global	_C1INV
+   402+ 04E4                     _C1INV  equ     1252
+   403+                          	global	_C1OUT
+   404+ 04E6                     _C1OUT  equ     1254
+   405+                          	global	_C2INV
+   406+ 04E5                     _C2INV  equ     1253
+   407                           	global	_C2OUT
+   408  04E7                     _C2OUT  equ     1255
+   409+                          	global	_CCP1IE
+   410+ 0462                     _CCP1IE  equ     1122
+   411+                          	global	_CCP2IE
+   412+ 0468                     _CCP2IE  equ     1128
+   413+                          	global	_CIS
+   414+ 04E3                     _CIS  equ     1251
+   415+                          	global	_CKE
+   416+ 04A6                     _CKE  equ     1190
+   417+                          	global	_CM0
+   418+ 04E0                     _CM0  equ     1248
+   419                           	global	_CM1
+   420  04E1                     _CM1  equ     1249
+   421+                          	global	_CM2
+   422+ 04E2                     _CM2  equ     1250
+   423                           	global	_CMIE
+   424  046E                     _CMIE  equ     1134
+   425+                          	global	_CSRC
+   426+ 04C7                     _CSRC  equ     1223
+   427+                          	global	_CVR0
+   428+ 04E8                     _CVR0  equ     1256
+   429+                          	global	_CVR1
+   430+ 04E9                     _CVR1  equ     1257
+   431+                          	global	_CVR2
+   432+ 04EA                     _CVR2  equ     1258
+   433+                          	global	_CVR3
+   434+ 04EB                     _CVR3  equ     1259
+   435                           	global	_CVREN
+   436  04EF                     _CVREN  equ     1263
+   437+                          	global	_CVROE
+   438+ 04EE                     _CVROE  equ     1262
+   439+                          	global	_CVRR
+   440+ 04ED                     _CVRR  equ     1261
+   441+                          	global	_DA
+   442+ 04A5                     _DA  equ     1189
+   443                           	global	_EEIE
+   444  046C                     _EEIE  equ     1132
+   445+                          	global	_GCEN
+   446+ 048F                     _GCEN  equ     1167
+   447                           	global	_IBF
+   448  044F                     _IBF  equ     1103
+   449+                          	global	_IBOV
+   450+ 044D                     _IBOV  equ     1101
+   451                           	global	_INTEDG
+   452  040E                     _INTEDG  equ     1038
+   453+                          	global	_OBF
+   454+ 044E                     _OBF  equ     1102
+   455+                          	global	_PCFG0
+   456+ 04F8                     _PCFG0  equ     1272
+   457+                          	global	_PCFG1
+   458+ 04F9                     _PCFG1  equ     1273
+   459+                          	global	_PCFG2
+   460+ 04FA                     _PCFG2  equ     1274
+   461+                          	global	_PCFG3
+   462+ 04FB                     _PCFG3  equ     1275
+   463                           	global	_PEN
+   464  048A                     _PEN  equ     1162
+   465                           	global	_POR
+   466  0471                     _POR  equ     1137
+   467+                          	global	_PS0
+   468+ 0408                     _PS0  equ     1032
+   469+                          	global	_PS1
+   470+ 0409                     _PS1  equ     1033
+   471                           	global	_PS2
+   472  040A                     _PS2  equ     1034
+   473+                          	global	_PSA
+   474+ 040B                     _PSA  equ     1035
+   475                           	global	_PSPIE
+   476  0467                     _PSPIE  equ     1127
+   477+                          	global	_PSPMODE
+   478+ 044C                     _PSPMODE  equ     1100
+   479                           	global	_RBPU
+   480  040F                     _RBPU  equ     1039
+   481+                          	global	_RCEN
+   482+ 048B                     _RCEN  equ     1163
+   483+                          	global	_RCIE
+   484+ 0465                     _RCIE  equ     1125
+   485+                          	global	_RSEN
+   486+ 0489                     _RSEN  equ     1161
+   487+                          	global	_RW
+   488+ 04A2                     _RW  equ     1186
+   489+                          	global	_SEN
+   490+ 0488                     _SEN  equ     1160
+   491                           	global	_SMP
+   492  04A7                     _SMP  equ     1191
+   493+                          	global	_SSPIE
+   494+ 0463                     _SSPIE  equ     1123
+   495+                          	global	_START
+   496+ 04A3                     _START  equ     1187
+   497+                          	global	_STOP
+   498+ 04A4                     _STOP  equ     1188
+   499+                          	global	_SYNC
+   500+ 04C4                     _SYNC  equ     1220
+   501+                          	global	_T0CS
+   502+ 040D                     _T0CS  equ     1037
+   503                           	global	_T0SE
+   504  040C                     _T0SE  equ     1036
+   505+                          	global	_TMR1IE
+   506+ 0460                     _TMR1IE  equ     1120
+   507                           	global	_TMR2IE
+   508  0461                     _TMR2IE  equ     1121
+   509+                          	global	_TRISA0
+   510+ 0428                     _TRISA0  equ     1064
+   511+                          	global	_TRISA1
+   512+ 0429                     _TRISA1  equ     1065
+   513+                          	global	_TRISA2
+   514+ 042A                     _TRISA2  equ     1066
+   515+                          	global	_TRISA3
+   516+ 042B                     _TRISA3  equ     1067
+   517+                          	global	_TRISA4
+   518+ 042C                     _TRISA4  equ     1068
+   519                           	global	_TRISA5
+   520  042D                     _TRISA5  equ     1069
+   521+                          	global	_TRISB0
+   522+ 0430                     _TRISB0  equ     1072
+   523+                          	global	_TRISB1
+   524+ 0431                     _TRISB1  equ     1073
+   525+                          	global	_TRISB2
+   526+ 0432                     _TRISB2  equ     1074
+   527+                          	global	_TRISB3
+   528+ 0433                     _TRISB3  equ     1075
+   529+                          	global	_TRISB4
+   530+ 0434                     _TRISB4  equ     1076
+   531                           	global	_TRISB5
+   532  0435                     _TRISB5  equ     1077
+   533+                          	global	_TRISB6
+   534+ 0436                     _TRISB6  equ     1078
+   535+                          	global	_TRISB7
+   536+ 0437                     _TRISB7  equ     1079
+   537+                          	global	_TRISC0
+   538+ 0438                     _TRISC0  equ     1080
+   539+                          	global	_TRISC1
+   540+ 0439                     _TRISC1  equ     1081
+   541+                          	global	_TRISC2
+   542+ 043A                     _TRISC2  equ     1082
+   543+                          	global	_TRISC3
+   544+ 043B                     _TRISC3  equ     1083
+   545+                          	global	_TRISC4
+   546+ 043C                     _TRISC4  equ     1084
+   547                           	global	_TRISC5
+   548  043D                     _TRISC5  equ     1085
+   549                           	global	_TRISC6
+   550  043E                     _TRISC6  equ     1086
+   551+                          	global	_TRISC7
+   552+ 043F                     _TRISC7  equ     1087
+   553+                          	global	_TRISD0
+   554+ 0440                     _TRISD0  equ     1088
+   555+                          	global	_TRISD1
+   556+ 0441                     _TRISD1  equ     1089
+   557+                          	global	_TRISD2
+   558+ 0442                     _TRISD2  equ     1090
+   559                           	global	_TRISD3
+   560  0443                     _TRISD3  equ     1091
+   561+                          	global	_TRISD4
+   562+ 0444                     _TRISD4  equ     1092
+   563                           	global	_TRISD5
+   564  0445                     _TRISD5  equ     1093
+   565+                          	global	_TRISD6
+   566+ 0446                     _TRISD6  equ     1094
+   567+                          	global	_TRISD7
+   568+ 0447                     _TRISD7  equ     1095
+   569+                          	global	_TRISE0
+   570+ 0448                     _TRISE0  equ     1096
+   571+                          	global	_TRISE1
+   572+ 0449                     _TRISE1  equ     1097
+   573+                          	global	_TRISE2
+   574+ 044A                     _TRISE2  equ     1098
+   575                           	global	_TRMT
+   576  04C1                     _TRMT  equ     1217
+   577+                          	global	_TX9
+   578+ 04C6                     _TX9  equ     1222
+   579+                          	global	_TX9D
+   580+ 04C0                     _TX9D  equ     1216
+   581+                          	global	_TXEN
+   582+ 04C5                     _TXEN  equ     1221
+   583+                          	global	_TXIE
+   584+ 0464                     _TXIE  equ     1124
+   585+                          	global	_UA
+   586+ 04A1                     _UA  equ     1185
+   587                           	global	_EEADR
+   588  010D                     _EEADR  equ     269
+   589+                          	global	_EEADRH
+   590+ 010F                     _EEADRH  equ     271
+   591                           	global	_EEADRL
+   592  010D                     _EEADRL  equ     269
+   593+                          	global	_EEDATA
+   594+ 010C                     _EEDATA  equ     268
+   595+                          	global	_EEDATH
+   596+ 010E                     _EEDATH  equ     270
+   597+                          	global	_EECON1
+   598+ 018C                     _EECON1  equ     396
+   599+                          	global	_EECON2
+   600+ 018D                     _EECON2  equ     397
+   601+                          	global	_EEPGD
+   602+ 0C67                     _EEPGD  equ     3175
+   603                           	global	_RD
+   604  0C60                     _RD  equ     3168
+   605+                          	global	_WR
+   606+ 0C61                     _WR  equ     3169
+   607+                          	global	_WREN
+   608+ 0C62                     _WREN  equ     3170
+   609+                          	global	_WRERR
+   610+ 0C63                     _WRERR  equ     3171
+   611+                          	file	"usart_slave.as"
+   612+                          	line	#
+   613+                          psect cinit,class=CODE,delta=2
+   614+                          global start_initialization
+   615+ 06F5                     start_initialization:
+   616                           
+   617                           psect cinit,class=CODE,delta=2
+   618                           global end_of_initialization
+   619                           
+   620                           ;End of C runtime variable initationation code
+   621                           
+   622  06F5                     end_of_initialization:
+   623  06F5  0183               clrf status
+   624  06F6  120A  118A  2F14   ljmp _main	;jump to C main() function
+   625                           psect	cstackCOMMON,class=COMMON,space=1
+   626                           global __pcstackCOMMON
+   627  0070                     __pcstackCOMMON:
+   628                           	global	?_usart_slave_ini_tx
+   629  0070                     ?_usart_slave_ini_tx: ;@ 0x0
+   630                           	global	??_usart_slave_ini_tx
+   631  0070                     ??_usart_slave_ini_tx: ;@ 0x0
+   632                           	global	??_usart_tx
+   633  0070                     ??_usart_tx: ;@ 0x0
+   634                           	global	??_lcd_data
+   635  0070                     ??_lcd_data: ;@ 0x0
+   636                           	global	??_lcd_command
+   637  0070                     ??_lcd_command: ;@ 0x0
+   638                           	global	usart_tx@x
+   639  0070                     usart_tx@x:	; 1 bytes @ 0x0
+   640  0070                     	ds	1
+   641                           	global	??_lcd_init
+   642  0071                     ??_lcd_init: ;@ 0x1
+   643                           	global	??_main
+   644  0071                     ??_main: ;@ 0x1
+   645                           	global	?_usart_tx
+   646  0071                     ?_usart_tx: ;@ 0x1
+   647                           	global	lcd_command@i
+   648  0071                     lcd_command@i:	; 2 bytes @ 0x1
+   649                           	global	lcd_data@i
+   650  0071                     lcd_data@i:	; 2 bytes @ 0x1
+   651  0071                     	ds	2
+   652                           	global	lcd_data@x
+   653  0073                     lcd_data@x:	; 1 bytes @ 0x3
+   654                           	global	lcd_command@x
+   655  0073                     lcd_command@x:	; 1 bytes @ 0x3
+   656  0073                     	ds	1
+   657                           	global	?_lcd_data
+   658  0074                     ?_lcd_data: ;@ 0x4
+   659                           	global	?_lcd_init
+   660  0074                     ?_lcd_init: ;@ 0x4
+   661                           	global	?_lcd_command
+   662  0074                     ?_lcd_command: ;@ 0x4
+   663  0074                     	ds	2
+   664                           	global	?_main
+   665  0076                     ?_main: ;@ 0x6
+   666                           ;Data sizes: Strings 0, constant 0, data 0, bss 0, persistent 0 stack 0
+   667                           ;Auto spaces:   Size  Autos    Used
+   668                           ; COMMON          14      6       6
+   669                           ; BANK0           80      0       0
+   670                           ; BANK1           80      0       0
+   671                           ; BANK3           96      0       0
+   672                           ; BANK2           96      0       0
+   673                           
+   674                           
+   675                           ;Pointer list with targets:
+   676                           
+   677                           
+   678                           
+   679                           ;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   680                           
+   681                           
+   682                           ;Call graph:                      Base Space Used Autos Args Refs Density
+   683                           ;_main                                                2    0   90   0.00
+   684                           ;                                    4 COMMO    2
+   685                           ;           _lcd_init
+   686                           ; _usart_slave_ini_tx
+   687                           ;           _usart_tx
+   688                           ;  _usart_slave_ini_tx                                0    0    0   0.00
+   689                           ;  _usart_tx                                          1    0   10   0.00
+   690                           ;                                    0 COMMO    1
+   691                           ;  _lcd_init                                          0    0   80   0.00
+   692                           ;        _lcd_command
+   693                           ;           _lcd_data
+   694                           ;    _lcd_command                                     4    0   40   0.00
+   695                           ;                                    0 COMMO    4
+   696                           ;    _lcd_data                                        4    0   40   0.00
+   697                           ;                                    0 COMMO    4
+   698                           ; Estimated maximum call depth 2
+   699                           ; Address spaces:
+   700                           
+   701                           ;Name               Size   Autos  Total    Cost      Usage
+   702                           ;BITCOMMON            E      0       0       0        0.0%
+   703                           ;CODE                 0      0       0       0        0.0%
+   704                           ;NULL                 0      0       0       0        0.0%
+   705                           ;COMMON               E      6       6       1       42.9%
+   706                           ;SFR0                 0      0       0       1        0.0%
+   707                           ;BITSFR0              0      0       0       1        0.0%
+   708                           ;BITSFR1              0      0       0       2        0.0%
+   709                           ;SFR1                 0      0       0       2        0.0%
+   710                           ;ABS                  0      0       1       2        0.0%
+   711                           ;STACK                0      0       0       3        0.0%
+   712                           ;BITBANK0            50      0       0       4        0.0%
+   713                           ;SFR3                 0      0       0       4        0.0%
+   714                           ;BITSFR3              0      0       0       4        0.0%
+   715                           ;BANK0               50      0       0       5        0.0%
+   716                           ;BITSFR2              0      0       0       5        0.0%
+   717                           ;SFR2                 0      0       0       5        0.0%
+   718                           ;BITBANK1            50      0       0       6        0.0%
+   719                           ;BANK1               50      0       0       7        0.0%
+   720                           ;BITBANK3            60      0       0       8        0.0%
+   721                           ;BANK3               60      0       0       9        0.0%
+   722                           ;BITBANK2            60      0       0      10        0.0%
+   723                           ;BANK2               60      0       0      11        0.0%
+   724                           ;DATA                 0      0       1      12        0.0%
+   725                           ;EEDATA             100      0       0    1000        0.0%
+   726                           
+   727                           	global	_main
+   728                           psect	maintext,local,class=CODE,delta=2
+   729                           global __pmaintext
+   730  0714                     __pmaintext:
+   731                           
+   732                           ; *************** function _main *****************
+   733                           ; Defined at:
+   734                           ;		line 39 in file "C:\Users\Jarvis\Desktop\PIC16f877a_coding\usart_sync\usart_slave\usa
+                                 rt_slave.c"
+   735                           ; Parameters:    Size  Location     Type
+   736                           ;		None
+   737                           ; Auto vars:     Size  Location     Type
+   738                           ;  i               2    0        int 
+   739                           ; Return value:  Size  Location     Type
+   740                           ;		None               void
+   741                           ; Registers used:
+   742                           ;		wreg, status,2, status,0, pclath, cstack
+   743                           ; Tracked objects:
+   744                           ;		On entry : 17F/0
+   745                           ;		On exit  : 0/0
+   746                           ;		Unchanged: 0/0
+   747                           ; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   748                           ;      Locals:         2       0       0       0       0
+   749                           ;      Temp:     0
+   750                           ;      Total:    2
+   751                           ; This function calls:
+   752                           ;		_lcd_init
+   753                           ;		_usart_slave_ini_tx
+   754                           ;		_usart_tx
+   755                           ; This function is called by:
+   756                           ;		Startup code after reset
+   757                           ; This function uses a non-reentrant model
+   758                           ; 
+   759                           psect	maintext
+   760                           	file	"C:\Users\Jarvis\Desktop\PIC16f877a_coding\usart_sync\usart_slave\usart_slave.c"
+   761                           	line	39
+   762                           	global	__size_of_main
+   763  0022                     	__size_of_main	equ	__end_of_main-_main
+   764                           ;usart_slave.c: 38: void main()
+   765                           ;usart_slave.c: 39: {int i=0;
+   766                           	
+   767  0714                     _main:	
+   768                           	opt stack 8
+   769                           ; Regs used in _main: [wreg+status,2+status,0+pclath+cstack]
+   770                           	
+   771  0714                     l30000465:	
+   772                           	
+   773  0714                     l30000466:	
+   774                           	line	40
+   775                           ;usart_slave.c: 40: TRISD=0x00;
+   776  0714  1003               	clrc
+   777  0715  3000               	movlw	0
+   778  0716  1803               	btfsc	status,0
+   779  0717  3001               	movlw	1
+   780  0718  1683               	bsf	status, 5	;RP0=1, select bank1
+   781  0719  1303               	bcf	status, 6	;RP1=0, select bank1
+   782  071A  0088               	movwf	(136)^080h	;volatile
+   783                           	
+   784  071B                     l30000467:	
+   785                           	line	41
+   786                           ;usart_slave.c: 41: PORTD=0;
+   787  071B  1003               	clrc
+   788  071C  3000               	movlw	0
+   789  071D  1803               	btfsc	status,0
+   790  071E  3001               	movlw	1
+   791  071F  1283               	bcf	status, 5	;RP0=0, select bank0
+   792  0720  1303               	bcf	status, 6	;RP1=0, select bank0
+   793  0721  0088               	movwf	(8)	;volatile
+   794                           	
+   795  0722                     l30000468:	
+   796                           	line	43
+   797                           ;usart_slave.c: 43: lcd_init();
+   798  0722  120A  118A  2736   	fcall	_lcd_init
+              120A  118A         
+   799                           	
+   800  0727                     l30000469:	
+   801                           	line	44
+   802                           ;usart_slave.c: 44: usart_slave_ini_tx();
+   803  0727  120A  118A  2704   	fcall	_usart_slave_ini_tx
+              120A  118A         
+   804                           	
+   805  072C                     l30000470:	
+   806                           	line	48
+   807                           ;usart_slave.c: 46: {
+   808                           ;usart_slave.c: 48: usart_tx('a');
+   809  072C  3061               	movlw	(061h)
+   810  072D  120A  118A  26F9   	fcall	_usart_tx
+              120A  118A         
+   811  0732  2F2C               	goto	l30000470
+   812                           	global	start
+   813  0733  120A  118A  2800   	ljmp	start
+   814                           	opt stack 0
+   815                           GLOBAL	__end_of_main
+   816  0736                     	__end_of_main:
+   817                           ; =============== function _main ends ============
+   818                           
+   819                           psect	maintext
+   820                           	line	52
+   821                           	signat	_main,88
+   822                           	global	_usart_slave_ini_tx
+   823                           psect	text25,local,class=CODE,delta=2
+   824                           global __ptext25
+   825  0704                     __ptext25:
+   826                           
+   827                           ; *************** function _usart_slave_ini_tx *****************
+   828                           ; Defined at:
+   829                           ;		line 14 in file "C:\Users\Jarvis\Desktop\PIC16f877a_coding\usart_sync\usart_slave\usa
+                                 rt_slave.c"
+   830                           ; Parameters:    Size  Location     Type
+   831                           ;		None
+   832                           ; Auto vars:     Size  Location     Type
+   833                           ;		None
+   834                           ; Return value:  Size  Location     Type
+   835                           ;		None               void
+   836                           ; Registers used:
+   837                           ;		wreg, status,2, status,0
+   838                           ; Tracked objects:
+   839                           ;		On entry : 0/0
+   840                           ;		On exit  : 0/0
+   841                           ;		Unchanged: 0/0
+   842                           ; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   843                           ;      Locals:         0       0       0       0       0
+   844                           ;      Temp:     0
+   845                           ;      Total:    0
+   846                           ; This function calls:
+   847                           ;		Nothing
+   848                           ; This function is called by:
+   849                           ;		_main
+   850                           ; This function uses a non-reentrant model
+   851                           ; 
+   852                           psect	text25
+   853                           	file	"C:\Users\Jarvis\Desktop\PIC16f877a_coding\usart_sync\usart_slave\usart_slave.c"
+   854                           	line	14
+   855                           	global	__size_of_usart_slave_ini_tx
+   856  0010                     	__size_of_usart_slave_ini_tx	equ	__end_of_usart_slave_ini_tx-_usart_slave_ini_tx
+   857                           ;usart_slave.c: 13: void usart_slave_ini_tx()
+   858                           ;usart_slave.c: 14: {SPBRG=0x00;
+   859                           	
+   860  0704                     _usart_slave_ini_tx:	
+   861                           	opt stack 7
+   862                           ; Regs used in _usart_slave_ini_tx: [wreg+status,2+status,0]
+   863                           	
+   864  0704                     l30000459:	
+   865  0704  1003               	clrc
+   866  0705  3000               	movlw	0
+   867  0706  1803               	btfsc	status,0
+   868  0707  3001               	movlw	1
+   869  0708  1683               	bsf	status, 5	;RP0=1, select bank1
+   870  0709  1303               	bcf	status, 6	;RP1=0, select bank1
+   871  070A  0099               	movwf	(153)^080h	;volatile
+   872                           	
+   873  070B                     l30000460:	
+   874                           	line	15
+   875                           ;usart_slave.c: 15: SPEN=1;
+   876  070B  1283               	bcf	status, 5	;RP0=0, select bank0
+   877  070C  1303               	bcf	status, 6	;RP1=0, select bank0
+   878  070D  1798               	bsf	(199/8),(199)&7
+   879                           	
+   880  070E                     l30000461:	
+   881                           	line	16
+   882                           ;usart_slave.c: 16: SYNC=1;
+   883  070E  1683               	bsf	status, 5	;RP0=1, select bank1
+   884  070F  1303               	bcf	status, 6	;RP1=0, select bank1
+   885  0710  1618               	bsf	(1220/8)^080h,(1220)&7
+   886                           	
+   887  0711                     l30000462:	
+   888                           	line	17
+   889                           ;usart_slave.c: 17: CSRC=0;
+   890  0711  1398               	bcf	(1223/8)^080h,(1223)&7
+   891                           	
+   892  0712                     l30000463:	
+   893                           	line	18
+   894                           ;usart_slave.c: 18: TXEN=1;
+   895  0712  1698               	bsf	(1221/8)^080h,(1221)&7
+   896                           	
+   897  0713                     l33:	
+   898  0713  0008               	return
+   899                           	opt stack 0
+   900                           GLOBAL	__end_of_usart_slave_ini_tx
+   901  0714                     	__end_of_usart_slave_ini_tx:
+   902                           ; =============== function _usart_slave_ini_tx ends ============
+   903                           
+   904                           psect	text26,local,class=CODE,delta=2
+   905                           global __ptext26
+   906  06F9                     __ptext26:
+   907                           	line	22
+   908                           	signat	_usart_slave_ini_tx,88
+   909                           	global	_usart_tx
+   910                           
+   911                           ; *************** function _usart_tx *****************
+   912                           ; Defined at:
+   913                           ;		line 32 in file "C:\Users\Jarvis\Desktop\PIC16f877a_coding\usart_sync\usart_slave\usa
+                                 rt_slave.c"
+   914                           ; Parameters:    Size  Location     Type
+   915                           ;  x               1    wreg     unsigned char 
+   916                           ; Auto vars:     Size  Location     Type
+   917                           ;  x               1    0[COMMON] unsigned char 
+   918                           ; Return value:  Size  Location     Type
+   919                           ;		None               void
+   920                           ; Registers used:
+   921                           ;		wreg
+   922                           ; Tracked objects:
+   923                           ;		On entry : 0/0
+   924                           ;		On exit  : 0/0
+   925                           ;		Unchanged: 0/0
+   926                           ; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   927                           ;      Locals:         1       0       0       0       0
+   928                           ;      Temp:     0
+   929                           ;      Total:    1
+   930                           ; This function calls:
+   931                           ;		Nothing
+   932                           ; This function is called by:
+   933                           ;		_main
+   934                           ; This function uses a non-reentrant model
+   935                           ; 
+   936                           psect	text26
+   937                           	file	"C:\Users\Jarvis\Desktop\PIC16f877a_coding\usart_sync\usart_slave\usart_slave.c"
+   938                           	line	32
+   939                           	global	__size_of_usart_tx
+   940  000B                     	__size_of_usart_tx	equ	__end_of_usart_tx-_usart_tx
+   941                           ;usart_slave.c: 31: void usart_tx(unsigned char x)
+   942                           ;usart_slave.c: 32: {TXREG=x;
+   943                           	
+   944  06F9                     _usart_tx:	
+   945                           	opt stack 7
+   946                           ; Regs used in _usart_tx: [wreg]
+   947                           ;usart_tx@x stored from wreg
+   948  06F9  00F0               	movwf	(usart_tx@x)
+   949                           	
+   950  06FA                     l30000464:	
+   951  06FA  0870               	movf	(usart_tx@x),w
+   952  06FB  1283               	bcf	status, 5	;RP0=0, select bank0
+   953  06FC  1303               	bcf	status, 6	;RP1=0, select bank0
+   954  06FD  0099               	movwf	(25)	;volatile
+   955                           	
+   956  06FE                     l39:	
+   957                           	line	34
+   958  06FE  1E0C               	btfss	(100/8),(100)&7
+   959  06FF  2F01               	goto	u71
+   960  0700  2F02               	goto	u70
+   961  0701                     u71:
+   962  0701  2EFE               	goto	l39
+   963  0702                     u70:
+   964                           	
+   965  0702                     l41:	
+   966                           	line	35
+   967                           ;usart_slave.c: 35: TXIF=0;
+   968  0702  120C               	bcf	(100/8),(100)&7
+   969                           	
+   970  0703                     l38:	
+   971  0703  0008               	return
+   972                           	opt stack 0
+   973                           GLOBAL	__end_of_usart_tx
+   974  0704                     	__end_of_usart_tx:
+   975                           ; =============== function _usart_tx ends ============
+   976                           
+   977                           psect	text27,local,class=CODE,delta=2
+   978                           global __ptext27
+   979  0736                     __ptext27:
+   980                           	line	37
+   981                           	signat	_usart_tx,4216
+   982                           	global	_lcd_init
+   983                           
+   984                           ; *************** function _lcd_init *****************
+   985                           ; Defined at:
+   986                           ;		line 39 in file "C:\Users\Jarvis\Desktop\PIC16f877a_coding\usart_sync\usart_slave\lcd
+                                 .h"
+   987                           ; Parameters:    Size  Location     Type
+   988                           ;		None
+   989                           ; Auto vars:     Size  Location     Type
+   990                           ;		None
+   991                           ; Return value:  Size  Location     Type
+   992                           ;		None               void
+   993                           ; Registers used:
+   994                           ;		wreg, status,2, status,0, pclath, cstack
+   995                           ; Tracked objects:
+   996                           ;		On entry : 0/0
+   997                           ;		On exit  : 0/0
+   998                           ;		Unchanged: 0/0
+   999                           ; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1000                           ;      Locals:         0       0       0       0       0
+  1001                           ;      Temp:     0
+  1002                           ;      Total:    0
+  1003                           ; This function calls:
+  1004                           ;		_lcd_command
+  1005                           ;		_lcd_data
+  1006                           ; This function is called by:
+  1007                           ;		_main
+  1008                           ; This function uses a non-reentrant model
+  1009                           ; 
+  1010                           psect	text27
+  1011                           	file	"C:\Users\Jarvis\Desktop\PIC16f877a_coding\usart_sync\usart_slave\lcd.h"
+  1012                           	line	39
+  1013                           	global	__size_of_lcd_init
+  1014  0026                     	__size_of_lcd_init	equ	__end_of_lcd_init-_lcd_init
+  1015                           ;lcd.h: 38: void lcd_init()
+  1016                           ;lcd.h: 39: {
+  1017                           	
+  1018  0736                     _lcd_init:	
+  1019                           	opt stack 7
+  1020                           ; Regs used in _lcd_init: [wreg+status,2+status,0+pclath+cstack]
+  1021                           	line	40
+  1022                           	
+  1023  0736                     l30000453:	
+  1024                           ;lcd.h: 40: TRISB=0x00;
+  1025  0736  1003               	clrc
+  1026  0737  3000               	movlw	0
+  1027  0738  1803               	btfsc	status,0
+  1028  0739  3001               	movlw	1
+  1029  073A  1683               	bsf	status, 5	;RP0=1, select bank1
+  1030  073B  1303               	bcf	status, 6	;RP1=0, select bank1
+  1031  073C  0086               	movwf	(134)^080h	;volatile
+  1032                           	
+  1033  073D                     l30000454:	
+  1034                           	line	41
+  1035                           ;lcd.h: 41: lcd_command(0x02);
+  1036  073D  3002               	movlw	(02h)
+  1037  073E  120A  118A  27AB   	fcall	_lcd_command
+              120A  118A         
+  1038                           	
+  1039  0743                     l30000455:	
+  1040                           	line	42
+  1041                           ;lcd.h: 42: lcd_command(0x28);
+  1042  0743  3028               	movlw	(028h)
+  1043  0744  120A  118A  27AB   	fcall	_lcd_command
+              120A  118A         
+  1044                           	
+  1045  0749                     l30000456:	
+  1046                           	line	43
+  1047                           ;lcd.h: 43: lcd_command(0x06);
+  1048  0749  3006               	movlw	(06h)
+  1049  074A  120A  118A  27AB   	fcall	_lcd_command
+              120A  118A         
+  1050                           	
+  1051  074F                     l30000457:	
+  1052                           	line	44
+  1053                           ;lcd.h: 44: lcd_command(0x0c);
+  1054  074F  300C               	movlw	(0Ch)
+  1055  0750  120A  118A  27AB   	fcall	_lcd_command
+              120A  118A         
+  1056                           	
+  1057  0755                     l30000458:	
+  1058                           	line	45
+  1059                           ;lcd.h: 45: lcd_data('A');
+  1060  0755  3041               	movlw	(041h)
+  1061  0756  120A  118A  275C   	fcall	_lcd_data
+              120A  118A         
+  1062                           	
+  1063  075B                     l15:	
+  1064  075B  0008               	return
+  1065                           	opt stack 0
+  1066                           GLOBAL	__end_of_lcd_init
+  1067  075C                     	__end_of_lcd_init:
+  1068                           ; =============== function _lcd_init ends ============
+  1069                           
+  1070                           psect	text28,local,class=CODE,delta=2
+  1071                           global __ptext28
+  1072  07AB                     __ptext28:
+  1073                           	line	46
+  1074                           	signat	_lcd_init,88
+  1075                           	global	_lcd_command
+  1076                           
+  1077                           ; *************** function _lcd_command *****************
+  1078                           ; Defined at:
+  1079                           ;		line 7 in file "C:\Users\Jarvis\Desktop\PIC16f877a_coding\usart_sync\usart_slave\lcd.
+                                 h"
+  1080                           ; Parameters:    Size  Location     Type
+  1081                           ;  x               1    wreg     unsigned char 
+  1082                           ; Auto vars:     Size  Location     Type
+  1083                           ;  x               1    3[COMMON] unsigned char 
+  1084                           ;  i               2    1[COMMON] int 
+  1085                           ; Return value:  Size  Location     Type
+  1086                           ;		None               void
+  1087                           ; Registers used:
+  1088                           ;		wreg, status,2, status,0
+  1089                           ; Tracked objects:
+  1090                           ;		On entry : 0/0
+  1091                           ;		On exit  : 0/0
+  1092                           ;		Unchanged: 0/0
+  1093                           ; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1094                           ;      Locals:         4       0       0       0       0
+  1095                           ;      Temp:     1
+  1096                           ;      Total:    4
+  1097                           ; This function calls:
+  1098                           ;		Nothing
+  1099                           ; This function is called by:
+  1100                           ;		_lcd_init
+  1101                           ; This function uses a non-reentrant model
+  1102                           ; 
+  1103                           psect	text28
+  1104                           	file	"C:\Users\Jarvis\Desktop\PIC16f877a_coding\usart_sync\usart_slave\lcd.h"
+  1105                           	line	7
+  1106                           	global	__size_of_lcd_command
+  1107  0055                     	__size_of_lcd_command	equ	__end_of_lcd_command-_lcd_command
+  1108                           ;lcd.h: 6: void lcd_command(unsigned char x)
+  1109                           ;lcd.h: 7: {int i=5000;
+  1110                           	
+  1111  07AB                     _lcd_command:	
+  1112                           	opt stack 6
+  1113                           ; Regs used in _lcd_command: [wreg+status,2+status,0]
+  1114                           ;lcd_command@x stored from wreg
+  1115  07AB  00F3               	movwf	(lcd_command@x)
+  1116                           	
+  1117  07AC                     l30000425:	
+  1118  07AC  3088               	movlw	low(01388h)
+  1119  07AD  00F1               	movwf	(lcd_command@i)
+  1120  07AE  3013               	movlw	high(01388h)
+  1121  07AF  00F2               	movwf	((lcd_command@i))+1
+  1122                           	
+  1123  07B0                     l30000426:	
+  1124                           	line	8
+  1125                           ;lcd.h: 8: PORTB=0xf0&x;
+  1126  07B0  0873               	movf	(lcd_command@x),w
+  1127  07B1  39F0               	andlw	0F0h
+  1128  07B2  1283               	bcf	status, 5	;RP0=0, select bank0
+  1129  07B3  1303               	bcf	status, 6	;RP1=0, select bank0
+  1130  07B4  0086               	movwf	(6)	;volatile
+  1131                           	
+  1132  07B5                     l30000427:	
+  1133                           	line	9
+  1134                           ;lcd.h: 9: PORTB&=~(1<<0);
+  1135  07B5  30FE               	movlw	(0FEh)
+  1136  07B6  00F0               	movwf	(??_lcd_command+0+0)
+  1137  07B7  0870               	movf	(??_lcd_command+0+0),w
+  1138  07B8  0586               	andwf	(6),f	;volatile
+  1139                           	
+  1140  07B9                     l30000428:	
+  1141                           	line	10
+  1142                           ;lcd.h: 10: PORTB&=~(1<<1);
+  1143  07B9  30FD               	movlw	(0FDh)
+  1144  07BA  00F0               	movwf	(??_lcd_command+0+0)
+  1145  07BB  0870               	movf	(??_lcd_command+0+0),w
+  1146  07BC  0586               	andwf	(6),f	;volatile
+  1147                           	
+  1148  07BD                     l30000429:	
+  1149                           	line	11
+  1150                           ;lcd.h: 11: PORTB|=(1<<2);
+  1151  07BD  1506               	bsf	(6)+(2/8),(2)&7	;volatile
+  1152                           	
+  1153  07BE                     l30000430:	
+  1154                           	line	12
+  1155  07BE  30FF               	movlw	low(-1)
+  1156  07BF  07F1               	addwf	(lcd_command@i),f
+  1157  07C0  1803               	skipnc
+  1158  07C1  0AF2               	incf	(lcd_command@i+1),f
+  1159  07C2  30FF               	movlw	high(-1)
+  1160  07C3  07F2               	addwf	(lcd_command@i+1),f
+  1161  07C4  30FF               	movlw	high(-1)
+  1162  07C5  0672               	xorwf	((lcd_command@i+1))&07fh,w
+  1163  07C6  1D03               	skipz
+  1164  07C7  2FCA               	goto	u15
+  1165  07C8  30FF               	movlw	low(-1)
+  1166  07C9  0671               	xorwf	((lcd_command@i))&07fh,w
+  1167  07CA                     u15:
+  1168                           
+  1169  07CA  1D03               	skipz
+  1170  07CB  2FCD               	goto	u11
+  1171  07CC  2FCE               	goto	u10
+  1172  07CD                     u11:
+  1173  07CD  2FBE               	goto	l30000430
+  1174  07CE                     u10:
+  1175                           	
+  1176  07CE                     l30000431:	
+  1177                           	line	13
+  1178                           ;lcd.h: 13: PORTB&=~(1<<2);
+  1179  07CE  30FB               	movlw	(0FBh)
+  1180  07CF  00F0               	movwf	(??_lcd_command+0+0)
+  1181  07D0  0870               	movf	(??_lcd_command+0+0),w
+  1182  07D1  0586               	andwf	(6),f	;volatile
+  1183                           	
+  1184  07D2                     l30000432:	
+  1185                           	line	14
+  1186                           ;lcd.h: 14: i=5000;
+  1187  07D2  3088               	movlw	low(01388h)
+  1188  07D3  00F1               	movwf	(lcd_command@i)
+  1189  07D4  3013               	movlw	high(01388h)
+  1190  07D5  00F2               	movwf	((lcd_command@i))+1
+  1191                           	
+  1192  07D6                     l30000433:	
+  1193                           	line	15
+  1194                           ;lcd.h: 15: PORTB=(0x0f&x)<<4;
+  1195  07D6  0873               	movf	(lcd_command@x),w
+  1196  07D7  390F               	andlw	0Fh
+  1197  07D8  00F0               	movwf	(??_lcd_command+0+0)
+  1198  07D9  3003               	movlw	(04h)-1
+  1199  07DA                     u25:
+  1200  07DA  1003               	clrc
+  1201  07DB  0DF0               	rlf	(??_lcd_command+0+0),f
+  1202  07DC  3EFF               	addlw	-1
+  1203  07DD  1D03               	skipz
+  1204  07DE  2FDA               	goto	u25
+  1205  07DF  1003               	clrc
+  1206  07E0  0D70               	rlf	(??_lcd_command+0+0),w
+  1207  07E1  0086               	movwf	(6)	;volatile
+  1208                           	
+  1209  07E2                     l30000434:	
+  1210                           	line	16
+  1211                           ;lcd.h: 16: PORTB&=~(1<<0);
+  1212  07E2  30FE               	movlw	(0FEh)
+  1213  07E3  00F0               	movwf	(??_lcd_command+0+0)
+  1214  07E4  0870               	movf	(??_lcd_command+0+0),w
+  1215  07E5  0586               	andwf	(6),f	;volatile
+  1216                           	
+  1217  07E6                     l30000435:	
+  1218                           	line	17
+  1219                           ;lcd.h: 17: PORTB&=~(1<<1);
+  1220  07E6  30FD               	movlw	(0FDh)
+  1221  07E7  00F0               	movwf	(??_lcd_command+0+0)
+  1222  07E8  0870               	movf	(??_lcd_command+0+0),w
+  1223  07E9  0586               	andwf	(6),f	;volatile
+  1224                           	
+  1225  07EA                     l30000436:	
+  1226                           	line	18
+  1227                           ;lcd.h: 18: PORTB|=(1<<2);
+  1228  07EA  1506               	bsf	(6)+(2/8),(2)&7	;volatile
+  1229                           	
+  1230  07EB                     l30000437:	
+  1231                           	line	19
+  1232  07EB  30FF               	movlw	low(-1)
+  1233  07EC  07F1               	addwf	(lcd_command@i),f
+  1234  07ED  1803               	skipnc
+  1235  07EE  0AF2               	incf	(lcd_command@i+1),f
+  1236  07EF  30FF               	movlw	high(-1)
+  1237  07F0  07F2               	addwf	(lcd_command@i+1),f
+  1238  07F1  30FF               	movlw	high(-1)
+  1239  07F2  0672               	xorwf	((lcd_command@i+1))&07fh,w
+  1240  07F3  1D03               	skipz
+  1241  07F4  2FF7               	goto	u35
+  1242  07F5  30FF               	movlw	low(-1)
+  1243  07F6  0671               	xorwf	((lcd_command@i))&07fh,w
+  1244  07F7                     u35:
+  1245                           
+  1246  07F7  1D03               	skipz
+  1247  07F8  2FFA               	goto	u31
+  1248  07F9  2FFB               	goto	u30
+  1249  07FA                     u31:
+  1250  07FA  2FEB               	goto	l30000437
+  1251  07FB                     u30:
+  1252                           	
+  1253  07FB                     l30000438:	
+  1254                           	line	20
+  1255                           ;lcd.h: 20: PORTB&=~(1<<2);
+  1256  07FB  30FB               	movlw	(0FBh)
+  1257  07FC  00F0               	movwf	(??_lcd_command+0+0)
+  1258  07FD  0870               	movf	(??_lcd_command+0+0),w
+  1259  07FE  0586               	andwf	(6),f	;volatile
+  1260                           	
+  1261  07FF                     l1:	
+  1262  07FF  0008               	return
+  1263                           	opt stack 0
+  1264                           GLOBAL	__end_of_lcd_command
+  1265  0800                     	__end_of_lcd_command:
+  1266                           ; =============== function _lcd_command ends ============
+  1267                           
+  1268                           psect	text29,local,class=CODE,delta=2
+  1269                           global __ptext29
+  1270  075C                     __ptext29:
+  1271                           	line	21
+  1272                           	signat	_lcd_command,4216
+  1273                           	global	_lcd_data
+  1274                           
+  1275                           ; *************** function _lcd_data *****************
+  1276                           ; Defined at:
+  1277                           ;		line 23 in file "C:\Users\Jarvis\Desktop\PIC16f877a_coding\usart_sync\usart_slave\lcd
+                                 .h"
+  1278                           ; Parameters:    Size  Location     Type
+  1279                           ;  x               1    wreg     unsigned char 
+  1280                           ; Auto vars:     Size  Location     Type
+  1281                           ;  x               1    3[COMMON] unsigned char 
+  1282                           ;  i               2    1[COMMON] int 
+  1283                           ; Return value:  Size  Location     Type
+  1284                           ;		None               void
+  1285                           ; Registers used:
+  1286                           ;		wreg, status,2, status,0
+  1287                           ; Tracked objects:
+  1288                           ;		On entry : 0/0
+  1289                           ;		On exit  : 0/0
+  1290                           ;		Unchanged: 0/0
+  1291                           ; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1292                           ;      Locals:         4       0       0       0       0
+  1293                           ;      Temp:     1
+  1294                           ;      Total:    4
+  1295                           ; This function calls:
+  1296                           ;		Nothing
+  1297                           ; This function is called by:
+  1298                           ;		_lcd_init
+  1299                           ; This function uses a non-reentrant model
+  1300                           ; 
+  1301                           psect	text29
+  1302                           	file	"C:\Users\Jarvis\Desktop\PIC16f877a_coding\usart_sync\usart_slave\lcd.h"
+  1303                           	line	23
+  1304                           	global	__size_of_lcd_data
+  1305  004F                     	__size_of_lcd_data	equ	__end_of_lcd_data-_lcd_data
+  1306                           ;lcd.h: 22: void lcd_data(unsigned char x)
+  1307                           ;lcd.h: 23: {int i=5000;
+  1308                           	
+  1309  075C                     _lcd_data:	
+  1310                           	opt stack 6
+  1311                           ; Regs used in _lcd_data: [wreg+status,2+status,0]
+  1312                           ;lcd_data@x stored from wreg
+  1313  075C  00F3               	movwf	(lcd_data@x)
+  1314                           	
+  1315  075D                     l30000439:	
+  1316  075D  3088               	movlw	low(01388h)
+  1317  075E  00F1               	movwf	(lcd_data@i)
+  1318  075F  3013               	movlw	high(01388h)
+  1319  0760  00F2               	movwf	((lcd_data@i))+1
+  1320                           	
+  1321  0761                     l30000440:	
+  1322                           	line	24
+  1323                           ;lcd.h: 24: PORTB=0xf0&x;
+  1324  0761  0873               	movf	(lcd_data@x),w
+  1325  0762  39F0               	andlw	0F0h
+  1326  0763  1283               	bcf	status, 5	;RP0=0, select bank0
+  1327  0764  1303               	bcf	status, 6	;RP1=0, select bank0
+  1328  0765  0086               	movwf	(6)	;volatile
+  1329                           	
+  1330  0766                     l30000441:	
+  1331                           	line	25
+  1332                           ;lcd.h: 25: PORTB|=(1<<0);
+  1333  0766  1406               	bsf	(6)+(0/8),(0)&7	;volatile
+  1334                           	
+  1335  0767                     l30000442:	
+  1336                           	line	26
+  1337                           ;lcd.h: 26: PORTB&=~(1<<1);
+  1338  0767  30FD               	movlw	(0FDh)
+  1339  0768  00F0               	movwf	(??_lcd_data+0+0)
+  1340  0769  0870               	movf	(??_lcd_data+0+0),w
+  1341  076A  0586               	andwf	(6),f	;volatile
+  1342                           	
+  1343  076B                     l30000443:	
+  1344                           	line	27
+  1345                           ;lcd.h: 27: PORTB|=(1<<2);
+  1346  076B  1506               	bsf	(6)+(2/8),(2)&7	;volatile
+  1347                           	
+  1348  076C                     l30000444:	
+  1349                           	line	28
+  1350  076C  30FF               	movlw	low(-1)
+  1351  076D  07F1               	addwf	(lcd_data@i),f
+  1352  076E  1803               	skipnc
+  1353  076F  0AF2               	incf	(lcd_data@i+1),f
+  1354  0770  30FF               	movlw	high(-1)
+  1355  0771  07F2               	addwf	(lcd_data@i+1),f
+  1356  0772  30FF               	movlw	high(-1)
+  1357  0773  0672               	xorwf	((lcd_data@i+1))&07fh,w
+  1358  0774  1D03               	skipz
+  1359  0775  2F78               	goto	u45
+  1360  0776  30FF               	movlw	low(-1)
+  1361  0777  0671               	xorwf	((lcd_data@i))&07fh,w
+  1362  0778                     u45:
+  1363                           
+  1364  0778  1D03               	skipz
+  1365  0779  2F7B               	goto	u41
+  1366  077A  2F7C               	goto	u40
+  1367  077B                     u41:
+  1368  077B  2F6C               	goto	l30000444
+  1369  077C                     u40:
+  1370                           	
+  1371  077C                     l30000445:	
+  1372                           	line	29
+  1373                           ;lcd.h: 29: PORTB&=~(1<<2);
+  1374  077C  30FB               	movlw	(0FBh)
+  1375  077D  00F0               	movwf	(??_lcd_data+0+0)
+  1376  077E  0870               	movf	(??_lcd_data+0+0),w
+  1377  077F  0586               	andwf	(6),f	;volatile
+  1378                           	
+  1379  0780                     l30000446:	
+  1380                           	line	30
+  1381                           ;lcd.h: 30: i=5000;
+  1382  0780  3088               	movlw	low(01388h)
+  1383  0781  00F1               	movwf	(lcd_data@i)
+  1384  0782  3013               	movlw	high(01388h)
+  1385  0783  00F2               	movwf	((lcd_data@i))+1
+  1386                           	
+  1387  0784                     l30000447:	
+  1388                           	line	31
+  1389                           ;lcd.h: 31: PORTB=(0x0f&x)<<4;
+  1390  0784  0873               	movf	(lcd_data@x),w
+  1391  0785  390F               	andlw	0Fh
+  1392  0786  00F0               	movwf	(??_lcd_data+0+0)
+  1393  0787  3003               	movlw	(04h)-1
+  1394  0788                     u55:
+  1395  0788  1003               	clrc
+  1396  0789  0DF0               	rlf	(??_lcd_data+0+0),f
+  1397  078A  3EFF               	addlw	-1
+  1398  078B  1D03               	skipz
+  1399  078C  2F88               	goto	u55
+  1400  078D  1003               	clrc
+  1401  078E  0D70               	rlf	(??_lcd_data+0+0),w
+  1402  078F  0086               	movwf	(6)	;volatile
+  1403                           	
+  1404  0790                     l30000448:	
+  1405                           	line	32
+  1406                           ;lcd.h: 32: PORTB|=(1<<0);
+  1407  0790  1406               	bsf	(6)+(0/8),(0)&7	;volatile
+  1408                           	
+  1409  0791                     l30000449:	
+  1410                           	line	33
+  1411                           ;lcd.h: 33: PORTB&=~(1<<1);
+  1412  0791  30FD               	movlw	(0FDh)
+  1413  0792  00F0               	movwf	(??_lcd_data+0+0)
+  1414  0793  0870               	movf	(??_lcd_data+0+0),w
+  1415  0794  0586               	andwf	(6),f	;volatile
+  1416                           	
+  1417  0795                     l30000450:	
+  1418                           	line	34
+  1419                           ;lcd.h: 34: PORTB|=(1<<2);
+  1420  0795  1506               	bsf	(6)+(2/8),(2)&7	;volatile
+  1421                           	
+  1422  0796                     l30000451:	
+  1423                           	line	35
+  1424  0796  30FF               	movlw	low(-1)
+  1425  0797  07F1               	addwf	(lcd_data@i),f
+  1426  0798  1803               	skipnc
+  1427  0799  0AF2               	incf	(lcd_data@i+1),f
+  1428  079A  30FF               	movlw	high(-1)
+  1429  079B  07F2               	addwf	(lcd_data@i+1),f
+  1430  079C  30FF               	movlw	high(-1)
+  1431  079D  0672               	xorwf	((lcd_data@i+1))&07fh,w
+  1432  079E  1D03               	skipz
+  1433  079F  2FA2               	goto	u65
+  1434  07A0  30FF               	movlw	low(-1)
+  1435  07A1  0671               	xorwf	((lcd_data@i))&07fh,w
+  1436  07A2                     u65:
+  1437                           
+  1438  07A2  1D03               	skipz
+  1439  07A3  2FA5               	goto	u61
+  1440  07A4  2FA6               	goto	u60
+  1441  07A5                     u61:
+  1442  07A5  2F96               	goto	l30000451
+  1443  07A6                     u60:
+  1444                           	
+  1445  07A6                     l30000452:	
+  1446                           	line	36
+  1447                           ;lcd.h: 36: PORTB&=~(1<<2);
+  1448  07A6  30FB               	movlw	(0FBh)
+  1449  07A7  00F0               	movwf	(??_lcd_data+0+0)
+  1450  07A8  0870               	movf	(??_lcd_data+0+0),w
+  1451  07A9  0586               	andwf	(6),f	;volatile
+  1452                           	
+  1453  07AA                     l8:	
+  1454  07AA  0008               	return
+  1455                           	opt stack 0
+  1456                           GLOBAL	__end_of_lcd_data
+  1457  07AB                     	__end_of_lcd_data:
+  1458                           ; =============== function _lcd_data ends ============
+  1459                           
+  1460                           psect	text30,local,class=CODE,delta=2
+  1461                           global __ptext30
+  1462  0003                     __ptext30:
+
+
+HI-TECH Software PICC Macro Assembler V9.70 build 5239 
+Symbol Table                                                                                   Wed Oct 12 07:09:52 2016
+
+                          l1 07FF                            l8 07AA                           _DA 04A5  
+                         _BF 04A0                           l15 075B                           _DC 0019  
+                         l41 0702                           l33 0713                           l38 0703  
+                         l39 06FE                           _PD 001B                           _RD 0C60  
+                         u10 07CE                           u11 07CD                           _UA 04A1  
+                         u30 07FB                           u31 07FA                           u15 07CA  
+                         u40 077C                           u41 077B                           u25 07DA  
+                         u35 07F7                           u60 07A6                           u61 07A5  
+                         u45 0778                           u70 0702                           u55 0788  
+                         u71 0701                           _TO 001C                           u65 07A2  
+                         _RW 04A2                           _WR 0C61                 lcd_command@i 0071  
+               lcd_command@x 0073                          _CM0 04E0                          _CM1 04E1  
+                        _CM2 04E2                          _CKE 04A6                          _IBF 044F  
+                        _CIS 04E3                          _CKP 00A4                          _GIE 005F  
+                        _BOR 0470                          _RA0 0028                          _RA1 0029  
+                        _RB0 0030                          _RA2 002A                          _RB1 0031  
+                        _RA3 002B                          _RC0 0038                          _RB2 0032  
+                        _RA4 002C                          _RC1 0039                          _RB3 0033  
+                        _RA5 002D                          _RD0 0040                          _RC2 003A  
+                        _RB4 0034                          _RD1 0041                          _RC3 003B  
+                        _RB5 0035                          _RE0 0048                          _RD2 0042  
+                        _RC4 003C                          _RB6 0036                          _RE1 0049  
+                        _RD3 0043                          _RC5 003D                          _RB7 0037  
+                        _RE2 004A                          _RD4 0044                          _RC6 003E  
+                        _RD5 0045                          _RC7 003F                          _OBF 044E  
+                        _RD6 0046                          _RD7 0047                          _FSR 0004  
+                        _PCL 0002                          _PS0 0408                          _PR2 0092  
+                        _PS1 0409                          _PS2 040A                          _PEN 048A  
+                        _RP0 001D                          _IRP 001F                          _RP1 001E  
+                        _SEN 0488                          _PSA 040B                          _POR 0471  
+                        _RX9 00C6                          _SMP 04A7                          _TX9 04C6  
+         _usart_slave_ini_tx 0704                         _ADIE 0466                         _ADIF 0066  
+                       _ADFM 04FF                         _ADGO 00FA                     __ptext30 0003  
+                       _ADON 00F8                     __ptext24 0003                     __ptext25 0704  
+                   __ptext26 06F9                     __ptext27 0736                     __ptext28 07AB  
+                   __ptext29 075C                         _CHS0 00FB                         _CHS1 00FC  
+                       _CHS2 00FD                         _EEIE 046C                         _EEIF 006C  
+                       _GCEN 048F                         _CMIE 046E                         _CMIF 006E  
+                       _BRGH 04C2                         _T0IE 005D                         _T0IF 005A  
+                       _CREN 00C4                         _T0CS 040D                         _FERR 00C2  
+                       _IBOV 044D                         _CVR0 04E8                         _CVR1 04E9  
+                       _CVR2 04EA                         _CVR3 04EB                         _T0SE 040C  
+                       _CSRC 04C7                         _INDF 0000                         _PIE1 008C  
+                       _PIE2 008D                         _CVRR 04ED                         _PEIE 005E  
+                       _INTE 005C                         _INTF 0059                         _RBIE 005B  
+                       _RBIF 0058                         _RCIE 0465                         _RCEN 048B  
+                       _RCIF 0065                         _PCON 008E                         _PIR1 000C  
+                       _PIR2 000D                         _OERR 00C1                         _RBPU 040F  
+                       _RX9D 00C0                         _TMR0 0001                         _TMR2 0011  
+                   _lcd_data 075C                         _WCOL 00A7                         _SPEN 00C7  
+                       _RSEN 0489                         _TX9D 04C0                         _SREN 00C5  
+                       _TRMT 04C1                         _STOP 04A4                         _TXIE 0464  
+                       _ZERO 001A                         _WREN 0C62                         _TXEN 04C5  
+                       _TXIF 0064                         _SYNC 04C4                     _lcd_init 0736  
+                  ?_lcd_data 0074                    ?_lcd_init 0074                         _main 0714  
+                 ??_lcd_data 0070                         start 0000                   ??_lcd_init 0071  
+__size_of_usart_slave_ini_tx 0010          start_initialization 06F5                    usart_tx@x 0070  
+                    _CCP1CON 0017                      _CCP2CON 001D                      _ACKSTAT 048E  
+                      _C1INV 04E4                        _C2INV 04E5            __size_of_lcd_data 004F  
+                      _C1OUT 04E6                        _C2OUT 04E7                        _ADCS0 00FE  
+                      _ADCS1 00FF                        _ADCS2 04FE                        _ADDEN 00C3  
+                      ?_main 0076                        _ACKEN 048C                        _ACKDT 048D  
+          __size_of_lcd_init 0026                        _BCLIE 046B                        _BCLIF 006B  
+                      _CCP1X 00BD                        _CCP1Y 00BC                        _CCP2X 00ED  
+                      _CCP2Y 00EC                        _EEADR 010D                        _CARRY 0018  
+                      _EEPGD 0C67                        _CMCON 009C                     _usart_tx 06F9  
+                      _T1CON 0010                        _T2CON 0012                      _T1CKPS0 0084  
+                    _T1CKPS1 0085                        _PCFG0 04F8                        _PCFG1 04F9  
+                      _PCFG2 04FA                        _PCFG3 04FB                      _T2CKPS0 0090  
+                    _T2CKPS1 0091                        _CVREN 04EF                        _CVROE 04EE  
+                      _RCREG 001A                        _RCSTA 0018                    ?_usart_tx 0071  
+                      _TMR1H 000F                        _TMR1L 000E                        _SPBRG 0099  
+                      _PORTA 0005                        _PORTB 0006                      _T1OSCEN 0083  
+                      _PORTC 0007                        _PORTD 0008                        _PORTE 0009  
+                      _PSPIE 0467                        _PSPIF 0067                        _START 04A3  
+                      _SSPM0 00A0                        _SSPM1 00A1                        _SSPM2 00A2  
+                      _SSPM3 00A3                        _TRISA 0085                        _TRISB 0086  
+                      _TRISC 0087                        _TRISD 0088                        _SSPIE 0463  
+                      _TRISE 0089                        _SSPIF 0063                        _SSPEN 00A5  
+                      _SSPOV 00A6                        _WRERR 0C63                        _TXREG 0019  
+                      _TXSTA 0098          ?_usart_slave_ini_tx 0070                   ??_usart_tx 0070  
+             __pcstackCOMMON 0070                      _PSPMODE 044C                      _SSPCON2 0091  
+                    _SSPSTAT 0094                      _TOUTPS0 0093                      _TOUTPS1 0094  
+                    _TOUTPS2 0095                      _TOUTPS3 0096                  _lcd_command 07AB  
+        __end_of_lcd_command 0800                        status 0003            __size_of_usart_tx 000B  
+              __size_of_main 0022                     l30000430 07BE                     l30000431 07CE  
+                   l30000440 0761                     l30000432 07D2                     l30000441 0766  
+                   l30000433 07D6                     l30000425 07AC                     l30000450 0795  
+                   l30000442 0767                     l30000434 07E2                     l30000426 07B0  
+                   l30000451 0796                     l30000443 076B                     l30000435 07E6  
+                   l30000427 07B5                     l30000452 07A6                     l30000444 076C  
+                   l30000436 07EA                     l30000428 07B9                     l30000460 070B  
+                   l30000445 077C                     l30000437 07EB                     l30000429 07BD  
+                   l30000453 0736                     l30000461 070E                     l30000446 0780  
+                   l30000438 07FB                     l30000454 073D                     l30000462 0711  
+                   l30000470 072C                     l30000447 0784                     l30000439 075D  
+                   l30000455 0743                     l30000463 0712                     l30000448 0790  
+                   l30000456 0749                     l30000464 06FA                     l30000449 0791  
+                   l30000457 074F                     l30000465 0714                     l30000458 0755  
+                   l30000466 0714                     l30000459 0704                     l30000467 071B  
+                   l30000468 0722                     l30000469 0727                 ?_lcd_command 0074  
+                     ??_main 0071                   __pmaintext 0714         __size_of_lcd_command 0055  
+                  lcd_data@i 0071                    lcd_data@x 0073                       _ADCON0 001F  
+                     _ADCON1 009F                       _CCP1M0 00B8                       _CCP1M1 00B9  
+                     _CCP1M2 00BA                       _CCP1M3 00BB                       _CCP2M0 00E8  
+                     _CCP2M1 00E9                       _CCP2M2 00EA                       _CCP2M3 00EB  
+                     _CCP1IE 0462                       _CCP1IF 0062                       _CCP2IE 0468  
+                     _CCP2IF 0068                       _ADRESH 001E                       _EEADRH 010F  
+                     _ADRESL 009E                       _EEADRL 010D                       _EEDATA 010C  
+                     _CCPR1H 0016                       _EEDATH 010E                       _CCPR2H 001C  
+                     _CCPR1L 0015                       _CCPR2L 001B                       _EECON1 018C  
+                     _EECON2 018D   __end_of_usart_slave_ini_tx 0714                 __end_of_main 0736  
+                     _GODONE 00FA         end_of_initialization 06F5             __end_of_lcd_data 07AB  
+                     _CVRCON 009D                       _T1SYNC 0082                       _INTEDG 040E  
+                     _PCLATH 000A                       _INTCON 000B             __end_of_lcd_init 075C  
+                     _TMR0IE 005D                       _TMR0IF 005A                       _TMR1IE 0460  
+                     _TMR1IF 0060                       _TMR1CS 0081                       _TMR2IE 0461  
+                     _TMR2IF 0061                       _OPTION 0081                       _TMR1ON 0080  
+                     _TMR2ON 0092                       _SSPADD 0093                       _TRISA0 0428  
+                     _TRISA1 0429                       _TRISB0 0430                       _TRISA2 042A  
+                     _TRISB1 0431                       _TRISA3 042B                       _TRISC0 0438  
+                     _TRISB2 0432                       _TRISA4 042C                       _TRISC1 0439  
+                     _TRISB3 0433                       _TRISA5 042D                       _TRISD0 0440  
+                     _TRISC2 043A                       _TRISB4 0434                       _TRISD1 0441  
+                     _TRISC3 043B                       _TRISB5 0435                       _TRISE0 0448  
+                     _TRISD2 0442                       _TRISC4 043C                       _TRISB6 0436  
+                     _TRISE1 0449                       _TRISD3 0443                       _TRISC5 043D  
+                     _TRISB7 0437                       _TRISE2 044A                       _TRISD4 0444  
+                     _TRISC6 043E                       _TRISD5 0445                       _TRISC7 043F  
+                     _TRISD6 0446                       _TRISD7 0447                       _STATUS 0003  
+                     _SSPCON 0014                       _SSPBUF 0013                ??_lcd_command 0070  
+           __end_of_usart_tx 0704         ??_usart_slave_ini_tx 0070  

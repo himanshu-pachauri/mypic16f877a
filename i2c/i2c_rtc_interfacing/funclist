@@ -1,0 +1,15 @@
+_lcd_command: CODE, 1612 0 85
+_i2c_start: CODE, 1214 0 11
+_print_day: CODE, 1455 0 78
+_lcd_data: CODE, 1533 0 79
+_main: CODE, 1844 0 204
+_lcd_print: CODE, 1697 0 147
+_lcd_print2: CODE, 1400 0 25
+_i2c_write: CODE, 1203 0 11
+_i2c_stop: CODE, 1198 0 5
+_i2c_read: CODE, 1260 0 20
+_i2c_ini: CODE, 1193 0 5
+_i2c_read_last: CODE, 1425 0 20
+_lcd_string: CODE, 1371 0 29
+_lcd_init: CODE, 1333 0 38
+Total: 757
